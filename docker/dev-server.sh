@@ -15,11 +15,11 @@ stop_and_remove_container || true
 # run the github-help-wanted container
 docker run \
     -v $(pwd)/src:/react/src \
-    -v $(pwd)/example:/react/example \
-    -v $(pwd)/entrypoints:/react/entrypoints \
-    -v $(pwd)/webpack.config.js:/react/webpack.config.js \
+    -v $(pwd)/dev-server:/react/dev-server \
+    -v $(pwd)/docker:/react/docker \
+    -v $(pwd)/webpack:/react/webpack \
     --name=github-help-wanted \
     -e NODE_ENV=$NODE_ENV \
-    --publish 5000:5000 \
-    --entrypoint=/react/entrypoints/dev-server.sh \
+    --publish 3100:3100 \
+    --entrypoint=/react/docker/entrypoints/dev-server.sh \
     -t github-help-wanted

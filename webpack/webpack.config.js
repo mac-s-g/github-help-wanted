@@ -1,26 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
-const wds_port = 5000;
+const wds_port = 3100;
 
 const PATHS = {
-    src: path.join(__dirname, 'src'),
-    js: path.join(__dirname, 'src/js'),
-    style: path.join(__dirname, 'src/style'),
-    build: path.join(__dirname, 'dist'),
-    example: path.join(__dirname, 'example')
+    src: '/react/src',
+    js: '/react/src/js',
+    style: '/react/src/style',
+    build: '/react/dist'
 };
 
-if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = 'production';
-}
-
-//example environment points at preloaded example
-//see: react-json-view/example/example.js
-const entrypoint = process.env.NODE_ENV === 'dev_server'
-  ? PATHS.example + '/example.js' : PATHS.js + '/index.js';
-
 const config = {
-  entry: [entrypoint],
+  entry: [PATHS.js + '/entry.js'],
   externals: {
     'cheerio': 'window',
     react: {
@@ -38,14 +28,6 @@ const config = {
       umd: 'react-dom'
     },
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: wds_port,
-    hot: true,
-    inline: true,
-    historyApiFallback: true,
-    contentBase: PATHS.build
-  },
   output: {
     path: PATHS.build,
     filename: 'main.js',
@@ -53,13 +35,11 @@ const config = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.UglifyJsPlugin()
   ],
   resolve: {
     extensions: [".js", ".json", ".css", ".scss"]
   },
-  devtool: process.env.NODE_ENV == 'production' ? false : 'eval-source-map',
   module: {
     rules: [
       {
@@ -69,10 +49,10 @@ const config = {
             loader: 'babel-loader'
           }
         ],
-        include: [PATHS.js, PATHS.example]
+        include: [PATHS.js]
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [{
           loader: "style-loader"
         }, {

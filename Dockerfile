@@ -10,6 +10,6 @@ RUN mkdir -p /react && cp -a /tmp/node_modules /react
 ADD . /react
 WORKDIR /react
 
-EXPOSE 5000
+EXPOSE 3100
 ENTRYPOINT ["/react/entrypoints/build.sh"]
 
