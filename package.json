@@ -43,7 +43,9 @@
   },
   "repository": {},
   "keywords": [],
-  "bugs": {},
+  "bugs": {
+    "url": "https://github.com/mac-s-g/github-help-wanted/issues/"
+  },
   "license": "MIT",
   "homepage": "https://mac-s-g.github.io/github-help-wanted/dist/index.html",
   "author": "Mac Gainor"
