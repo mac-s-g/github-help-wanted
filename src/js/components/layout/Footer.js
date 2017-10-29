@@ -56,6 +56,9 @@ const IndexContent = () => (
         <List.Item as='a' target="_blank" href='https://github.com/mac-s-g/'>
           Contact Me
         </List.Item>
+        <List.Item as='a' target="_blank" href=href="https://github.com/mac-s-g/github-help-wanted/issues/new?title=Website%20Bug:&body=describe%20how%20to%20replicate%20the%20issue:%0A%0Athank%20your%20for%20contributing!">
+          Report a Bug
+        </List.Item>
         <List.Item
           as='a' target="_blank"
           href='https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE'>
