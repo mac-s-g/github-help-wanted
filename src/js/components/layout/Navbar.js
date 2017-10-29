@@ -6,7 +6,9 @@ import {
     Icon,
     Dropdown
 } from 'semantic-ui-react'
+import {constants} from './../../constants'
 
+const {links} = constants;
 
 const Navbar = () => (
     <Menu fixed='top' inverted>
@@ -18,7 +20,7 @@ const Navbar = () => (
           <Menu.Item
             fixed='right'
             as='a'
-            href="https://github.com/mac-s-g/github-help-wanted"
+            href={links.internal.gh_repo_url}
             target="_blank" >
             <Icon
               name="github"

@@ -4,10 +4,14 @@ import {
     Divider,
     Grid,
     Header,
+    Icon,
     List,
     Segment
 } from 'semantic-ui-react'
 import Logo from './../Logo'
+import {constants} from './../../constants'
+
+const {links} = constants
 
 const IndexContent = () => (
   <Segment
@@ -21,23 +25,11 @@ const IndexContent = () => (
           <Grid.Column width={8}>
             <Header inverted as='h4' content='Related Projects' />
             <List link inverted>
-              <List.Item as='a' target="_blank" href="http://up-for-grabs.net/#/">
-                Up For Grabs
-              </List.Item>
-              <List.Item
-                as='a' target="_blank" href="http://www.firsttimersonly.com/">
-                First Timers Only
-              </List.Item>
-              <List.Item
-                as='a' target="_blank"
-                href="https://opensource.guide/how-to-contribute/">
-                How to Contribute
-              </List.Item>
-              <List.Item
-                as='a' target="_blank"
-                href="http://getinvolved.hanselman.com/">
-                Get Involved with Tech
-              </List.Item>
+              {Object.keys(links.external).map((name) => (
+                <List.Item as='a' target="_blank" href={links.external[name]}>
+                  {name}
+                </List.Item>
+              ))}
             </List>
           </Grid.Column>
           <Grid.Column width={8}>
@@ -46,6 +38,11 @@ const IndexContent = () => (
                 <div style={{marginBottom: '3px'}}>Thanks for supporting</div>
                 <Logo />
                 <div>and open-source projects everywhere!</div>
+                <p>
+                  Show your support with a <a href={links.internal.gh_repo_url} target="_blank">
+                    <Icon name="heart" /> on <Icon name="github" />
+                  </a>
+                </p>
               </div>
           </Grid.Column>
         </Grid.Row>
@@ -53,15 +50,19 @@ const IndexContent = () => (
 
       <Divider inverted section />
       <List horizontal inverted divided link>
-        <List.Item as='a' target="_blank" href='https://github.com/mac-s-g/'>
+        <List.Item as='a' target="_blank" href={links.internal.gh_profile_url}>
           Contact Me
         </List.Item>
-        <List.Item as='a' target="_blank" href="https://github.com/mac-s-g/github-help-wanted/issues/new?title=Website%20Bug:&body=describe%20how%20to%20replicate%20the%20issue:%0A%0Athank%20your%20for%20contributing!">
+        <List.Item as='a' target="_blank" href={
+          links.internal.gh_issues_url
+          + "new?title=Website%20Bug:&body=describe%20how%20to%20replicate%20the"
+          + "%20issue:%0A%0Athank%20your%20for%20contributing!"
+        }>
           Report a Bug
         </List.Item>
         <List.Item
           as='a' target="_blank"
-          href='https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE'>
+          href={links.internal.license_url}>
           Product License
         </List.Item>
       </List>

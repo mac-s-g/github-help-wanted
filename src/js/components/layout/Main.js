@@ -16,13 +16,9 @@ import {
 
 const FixedMenuLayout = () => (
   <div>
-
     <Navbar />
-
     <IndexContent />
-
     <Footer />
-
   </div>
 )
 
