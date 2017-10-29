@@ -1,11 +1,15 @@
-"use strict";
+"use strict"
 
-//import reactDom for browser rendering
-import ReactDom from "react-dom";
+//import React & ReactDOM for browser rendering
+import React from 'react'
+import ReactDOM from "react-dom"
 
-import Index from './index';
+import 'semantic-ui-css/semantic.min.css'
+import '/react/src/style/scss/global.scss'
 
-ReactDom.render(
+import Index from './index'
+
+ReactDOM.render(
     <div>
         <Index />
     </div>,

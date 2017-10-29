@@ -1,4 +1,4 @@
 # github-help-wanted
 
-a site to connect developers to open-source projects
+website to help connect developers to open-source projects
 

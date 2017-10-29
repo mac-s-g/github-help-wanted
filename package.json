@@ -1,15 +1,23 @@
 {
   "name": "github-help-wanted",
-  "description": "",
+  "description": "website to help connect developers to open-source projects",
   "version": "0.0.0",
   "main": "dist/main.js",
   "files": [
     "dist/"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "semantic-ui-css": "2.2.12",
+    "semantic-ui-react": "0.75.1",
+    "styled-components": "^2.2.2"
+  },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-function-bind": "^6.22.0",
     "babel-plugin-transform-node-env-inline": "^0.2.0",
@@ -18,13 +26,15 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
-    "html-webpack-plugin": "2.28.0",
+    "file-loader": "^1.1.5",
     "node-sass": "^4.5.3",
     "react-hot-loader": "^3.0.0-beta.6",
+    "redux-devtools": "^3.4.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.0"
   },
   "peerDependencies": {},
   "scripts": {
@@ -34,7 +44,7 @@
   "repository": {},
   "keywords": [],
   "bugs": {},
-  "license": "Proprietary",
+  "license": "MIT",
   "homepage": "",
   "author": "Mac Gainor"
 }

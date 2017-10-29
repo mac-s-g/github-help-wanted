@@ -2,9 +2,9 @@ FROM node:8.1.2-slim
 MAINTAINER Mac Gainor <mac.gainor@gmail.com>
 
 # install the node modules at container build time
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /react && cp -a /tmp/node_modules /react
+RUN mkdir -p /react
+ADD package.json /react/package.json
+RUN cd /react && npm install
 
 # add project code
 ADD . /react

@@ -8,11 +8,10 @@ echo "Running with NODE_ENV=$NODE_ENV"
 docker run \
     --rm \
     -v $(pwd)/src:/react/src \
-    -v $(pwd)/wepback:/react/wepback \
+    -v $(pwd)/webpack:/react/webpack \
     -v $(pwd)/dist:/react/dist \
     -v $(pwd)/dev-server:/react/dev-server \
     -v $(pwd)/docker:/react/docker \
-    -v $(pwd)/test:/react/test \
     -e NODE_ENV=$NODE_ENV \
     --entrypoint=/bin/bash \
     -ti github-help-wanted

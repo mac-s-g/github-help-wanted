@@ -12,10 +12,7 @@ const PATHS = {
 
 const config = {
   entry: [PATHS.js + '/entry.js'],
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-  },
+  externals: {},
   devServer: {
     host: '0.0.0.0',
     port: wds_port,
@@ -49,13 +46,19 @@ const config = {
         include: [PATHS.js]
       },
       {
-        test: /\.s?css$/,
+        test: /\.(css|scss|sass)$/,
         use: [{
           loader: "style-loader"
         }, {
           loader: "css-loader"
         }, {
           loader: "sass-loader"
+        }]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        use: [{
+          loader: 'url-loader?limit=100000'
         }]
       }
     ]
