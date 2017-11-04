@@ -6,9 +6,9 @@ const { badge } = constants;
 
 const Container = Styled.div`
     display: inline-block;
-    padding: 1px 4px;
-    margin: 0px 4px;
-    font-weight: bold;
+    padding: 1px 4px 2px 4px;
+    margin: 0px 0px 0px 4px;
+    font-weight: 400;
     border-radius: 2px;
     color: white;
     background-color: ${

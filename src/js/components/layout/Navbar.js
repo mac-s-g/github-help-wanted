@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from './../Logo'
+import Logo from './../../components/Logo'
 import {
     Container,
     Menu,
@@ -14,7 +14,7 @@ const Navbar = () => (
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item as='a' header>
-          <Logo />
+          <Logo size="large"/>
         </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item
@@ -24,7 +24,8 @@ const Navbar = () => (
             target="_blank" >
             <Icon
               name="github"
-              size="large"
+              size="big"
+              style={{margin:'0px'}}
             />
           </Menu.Item>
         </Menu.Menu>

@@ -27,6 +27,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
     "file-loader": "^1.1.5",
+    "isomorphic-fetch": "^2.2.1",
     "node-sass": "^4.5.3",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-devtools": "^3.4.0",

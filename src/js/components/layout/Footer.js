@@ -8,7 +8,7 @@ import {
     List,
     Segment
 } from 'semantic-ui-react'
-import Logo from './../Logo'
+import Logo from './../../components/Logo'
 import {constants} from './../../constants'
 
 const {links} = constants
@@ -26,7 +26,10 @@ const IndexContent = () => (
             <Header inverted as='h4' content='Related Projects' />
             <List link inverted>
               {Object.keys(links.external).map((name) => (
-                <List.Item as='a' target="_blank" href={links.external[name]}>
+                <List.Item
+                  key={links.external[name]}
+                  as='a' target="_blank"
+                  href={links.external[name]}>
                   {name}
                 </List.Item>
               ))}
