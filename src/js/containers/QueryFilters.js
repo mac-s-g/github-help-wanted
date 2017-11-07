@@ -1,43 +1,43 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import FilterList from './../components/FilterList'
-import {setLanguages, setLabels} from './../actions'
-// import IssueFilters from './IssueFilters'
-// import IssueList from './IssueList'
+import { connect } from 'react-redux'
+import {
+  selectLanguage,
+  selectLabels,
+  fetchIssues
+} from './../actions'
 
-const getSelectedLanguages = (values) => {
-  console.log('getSelectedLanguages', values)
-}
-
-const getSelectdLabels = (values) => {
-  console.log('getSelectedLabels', values)
-}
-
+import IssueFilters from './../components/IssueFilters'
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLanguageSelect: values => {
-      console.log('dispatching selected language', values)
-      dispatch(setLanguages(values))
+    onLanguageSelect: (query_filters, page, per_page) => {
+      dispatch(selectLanguage(query_filters.languages))
+      dispatch(fetchIssues(
+        query_filters, page, per_page
+      ))
     },
-    onLabelSelect: values => {
-      console.log('dispatching selected label', values)
-      dispatch(setLabels(values))
+    onLabelSelect: (query_filters, page, per_page) => {
+      dispatch(selectLabels(query_filters.labels))
+      dispatch(fetchIssues(
+        query_filters, page, per_page
+      ))
     }
   }
 }
 
 const mapStateToProps = state => {
   return {
-    selectedLangauges: getSelectedLanguages(state.lanugages),
-    selectedLabels: getSelectdLabels(state.labels)
+    selectedLanguages: state.issueFilters.languages,
+    selectedLabels: state.issueFilters.labels,
+    selectedPage: state.issueFilters.page,
+    selectedPerPage: state.issueFilters.results_per_page,
   }
 }
 
 const Filters = connect(
   mapStateToProps,
   mapDispatchToProps
-)(FilterList)
+)(IssueFilters)
 
 
 export default Filters

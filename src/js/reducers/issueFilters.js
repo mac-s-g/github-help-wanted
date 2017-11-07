@@ -1,17 +1,40 @@
+import { constants } from './../constants'
+import {
+  SELECT_LANGUAGE,
+  SELECT_LABEL,
+  SELECT_PAGE
+} from './../actions'
+
+const { page, per_page } = constants.app_defaults
+
 let default_filters = {
-  language: false
+  languages: [],
+  labels: ["help wanted"],
+  page: page,
+  results_per_page: per_page
 }
 
-const filters = (state = default_filters, action) => {
+
+const issueFilters = (state = default_filters, action) => {
   switch (action.type) {
-    case 'FILTER_LANGUAGE':
+    case SELECT_LANGUAGE:
       return {
         ...state,
-        language: action.value
+        languages: action.value
+      }
+    case SELECT_LABEL:
+      return {
+        ...state,
+        labels: action.value
+      }
+    case SELECT_PAGE:
+      return {
+        ...state,
+        page: 1
       }
     default:
       return state
   }
 }
 
-export default filters
+export default issueFilters

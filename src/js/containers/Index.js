@@ -1,16 +1,13 @@
 import React from 'react'
 import Layout from './../components/layout/Main'
-import {Provider} from 'react-redux'
-import Store from './../reducers'
+import { Provider } from 'react-redux'
 
-export default class extends React.Component {
+import 'semantic-ui-css/semantic.min.css'
+import '/react/src/style/scss/global.scss'
 
-  render() {
-    const {state} = this
-    return (
-      <Provider store={Store}>
-        <Layout />
-      </Provider>)
-  }
+export default ({store}) => (
+  <Provider store={store}>
+    <Layout />
+  </Provider>
+)
 
-}

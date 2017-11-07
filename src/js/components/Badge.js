@@ -4,7 +4,7 @@ import { constants } from './../constants'
 
 const { badge } = constants;
 
-const Container = Styled.div`
+const BadgeContainer = Styled.div`
     display: inline-block;
     padding: 1px 4px 2px 4px;
     margin: 0px 0px 0px 4px;
@@ -14,14 +14,16 @@ const Container = Styled.div`
     background-color: ${
         props => props.type && badge[props.type]
         ? badge[props.type]
-        : '#eee'
+        : '#aaa'
     };
 `
 
 const Badge = (props) => (
-    <Container type={props.type}>
+    <BadgeContainer
+        type={props.type}
+        style={{...props.style}} >
         {props.label}
-    </Container>
+    </BadgeContainer>
 )
 
 export default Badge

@@ -20,7 +20,6 @@ class MultiSelect extends React.Component {
     const {additions, searchQuery} = this.state;
     const {options, placeholder, onChange, value} = this.props;
 
-    console.log('value', value);
     return <Dropdown
       placeholder={placeholder}
       fluid
@@ -29,6 +28,7 @@ class MultiSelect extends React.Component {
       selection
       closeOnChange
       allowAdditions
+      value={value.map((val) => this.createDropdownItem(val)['value'])}
       searchQuery={searchQuery}
       onSearchChange={(e, {searchQuery}) => {
         this.setState({
@@ -36,6 +36,7 @@ class MultiSelect extends React.Component {
         })
       }}
       onChange={(e, {value})=>{
+        console.log('VAL CHANGED', value)
         this.setState({searchQuery: ""})
         onChange(value);
       }}

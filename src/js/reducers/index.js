@@ -1,12 +1,11 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers } from 'redux'
+
 import issueFilters from './issueFilters'
-import issueResults from './issueFilters'
+import issueResults from './issueResults'
 
-const Store = createStore(
-    combineReducers({
-        issueFilters,
-        issueResults
-    })
-)
+const reducer = combineReducers({
+  issueFilters,
+  issueResults
+})
 
-export default Store
+export default reducer

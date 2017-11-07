@@ -1,4 +1,11 @@
 const constants = {
+  project_info: {
+    statement: "Building tools to help connect developers to open source projects"
+  },
+  app_defaults: {
+    page: 1,
+    per_page: 10
+  },
   badge: {
     help_wanted: '#d93f0b'
     // help_wanted: "#33aa3f"
@@ -14,6 +21,9 @@ const constants = {
       gh_profile_url: "https://github.com/mac-s-g/",
       license_url: "https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE",
       site_url: "https://mac-s-g.github.io/github-help-wanted/dist/index.html"
+    },
+    api: {
+      issues_url: 'https://api.github.com/search/issues'
     },
     external: {
       "Up For Grabs": "http://up-for-grabs.net/#/",
