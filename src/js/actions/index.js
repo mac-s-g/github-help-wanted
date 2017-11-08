@@ -3,19 +3,19 @@ import fetch from 'isomorphic-fetch'
 import { formatIssueQuery } from './../helpers'
 import { constants } from './../constants'
 
-const { access_token } = constants.project_info;
-
 
 export const SELECT_LANGUAGE = 'SELECT_LANGUAGE'
 export const SELECT_LABEL = 'SELECT_LABEL'
 export const SELECT_PAGE = 'SELECT_LABEL'
+
 export const REQUEST_ISSUES = 'REQUEST_ISSUES'
 export const RECEIVE_ISSUES = 'RECEIVE_ISSUES'
 export const RECEIVE_ISSUES_ERROR = 'RECEIVE_ISSUES_ERROR'
 
-export const REQUEST_LABELS = 'REQUEST_LABELS'
-export const RECEIVE_LABELS = 'RECEIVE_LABELS'
-export const RECEIVE_LABELS_ERROR = 'RECEIVE_LABELS_ERROR'
+export const REQUEST_REPO = 'REQUEST_REPO'
+export const RECEIVE_REPO = 'RECEIVE_REPO'
+export const RECEIVE_REPO_ERROR = 'RECEIVE_REPO_ERROR'
+
 
 export const selectLanguage = languages => ({
   type: SELECT_LANGUAGE,
@@ -49,7 +49,7 @@ const receiveIssues = (query_filters, json) => ({
 
 
 const receiveIssuesError = (query_filters, error) => ({
-  type: RECEIVE_ERROR,
+  type: RECEIVE_ISSUES_ERROR,
   result: error,
   receivedAt: Date.now()
 })
@@ -85,43 +85,47 @@ export const fetchIssues = (
   }
 }
 
-const requestLabels = url => ({
-  type: REQUEST_LABELS,
+
+const requestRepository = url => ({
+  type: REQUEST_REPO,
   url: url
 })
 
-const receiveLabels = (url, results) => ({
-  type: RECEIVE_LABELS,
+
+const receiveRepository = (url, json) => ({
+  type: RECEIVE_REPO,
+  result: json,
   url: url,
-  results: results
+  receivedAt: Date.now()
 })
 
-const receiveLabelsError = (url, error) => ({
-  type: RECEIVE_LABELS_ERROR,
+
+const receiveRepositoryError = (url, error) => ({
+  type: RECEIVE_REPO_ERROR,
+  result: error,
   url: url,
-  error: error
+  receivedAt: Date.now()
 })
 
-export const fetchLabels = url => {
+
+export const fetchRepository = url => {
   return dispatch => {
-    dispatch(requestLabels(url), {
-      access_token: access_token
-    })
+    dispatch(requestRepository(url))
     return fetch(url)
       .then(response => response.json())
       .then(json => dispatch(
-        receiveLabels(
+        receiveRepository(
           url,
           json
         )
       ))
       .catch(error => {
         console.log(
-          'api error occurred while fetching labels',
+          'api error occurred while fetching repository',
           url,
           error
         )
-        dispatch(receiveLabelsError(url, error))
+        dispatch(receiveRepositoryError(url, error))
       })
   }
 }

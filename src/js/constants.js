@@ -20,7 +20,8 @@ const constants = {
       gh_issues_url: "https://github.com/mac-s-g/github-help-wanted/issues/",
       gh_profile_url: "https://github.com/mac-s-g/",
       license_url: "https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE",
-      site_url: "https://mac-s-g.github.io/github-help-wanted/dist/index.html"
+      site_url: "https://mac-s-g.github.io/github-help-wanted/dist/index.html",
+      github_url: "https://github.com/"
     },
     api: {
       issues_url: 'https://api.github.com/search/issues'

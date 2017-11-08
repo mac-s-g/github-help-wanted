@@ -11,7 +11,7 @@ import {constants} from './../../constants'
 const {links} = constants;
 
 const Navbar = () => (
-    <Menu fixed='top' inverted>
+    <Menu attached='top' inverted>
       <Container>
         <Menu.Item as='a' header>
           <Logo size="large"/>

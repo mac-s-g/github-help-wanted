@@ -11,7 +11,7 @@ class MultiSelect extends React.Component {
   createDropdownItem = (value) => {
     return {
       key: value.toLowerCase().replace(/\s+/g, '-'),
-      value: value.toLowerCase().replace(/\s+/g, '-'),
+      value: value,
       text: value
     }
   }
@@ -35,10 +35,9 @@ class MultiSelect extends React.Component {
           searchQuery: searchQuery
         })
       }}
-      onChange={(e, {value})=>{
-        console.log('VAL CHANGED', value)
+      onChange={(e, value)=>{
         this.setState({searchQuery: ""})
-        onChange(value);
+        onChange(value.value);
       }}
       onAddItem={(e, {value}) => {
         const existing = additions.concat(options)

@@ -1,6 +1,7 @@
 import { constants } from './../constants'
 
 const { issues_url } = constants.links.api
+const { github_url } = constants.links.internal
 
 const formatIssueQueryParams = (filter, values) => {
   return values.map((value) => {
@@ -11,7 +12,7 @@ const formatIssueQueryParams = (filter, values) => {
 }
 
 export const formatIssueQuery = (
-    query_filters, page, per_page
+    query_filters, page, per_page, sort='updated'
 ) => (
   issues_url
     + '?q='
@@ -21,10 +22,18 @@ export const formatIssueQuery = (
     + formatIssueQueryParams('label', query_filters['labels'])
     + '&page=' + page
     + '&per_page=' + per_page
+    + '&sort=' + sort
+    + '&order=desc'
 )
 
 
-export const formatLabelUrl = url => (
-  //remove "{/name}" suggestion from end of link
-  url.replace(/{.*}/g, '')
+export const formatRepositoryName = repository_url => (
+  repository_url.replace(/.*repos\//g, '')
 )
+
+export const formatRepositoryUrl = repository_url => (
+  github_url + repository_url.replace(/.*repos\//g, '')
+)
+
+
+export const isset = (variable) => (variable !== undefined)

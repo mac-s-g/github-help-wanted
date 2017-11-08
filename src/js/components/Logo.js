@@ -24,7 +24,11 @@ const Container = Styled.div`
 
 const Logo = (props) => (
   <Container theme={props.theme} size={props.size}>
-    GitHub <Badge label="help wanted" type="help_wanted" />
+    GitHub
+    <Badge
+      label="help wanted"
+      type="help_wanted"
+      style={{fontWeight:'400', marginLeft: '0.3em'}} />
   </Container>
 )
 

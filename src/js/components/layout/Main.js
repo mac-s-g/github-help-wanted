@@ -17,13 +17,13 @@ const FixedMenuLayout = () => (
   <div>
     <Navbar />
     <Grid
-      style={{ paddingTop: '7em' }} >
-      <Grid.Column
-        hidden >
-        {/* placeholder for adding github user to main layout */}
+      style={{ paddingTop: '4em' }} >
+      {/* placeholder for adding github user to main layout
+      <Grid.Column >
         <Container>
         </Container>
       </Grid.Column>
+      */}
       <Grid.Column
         width={16} >
         <Container

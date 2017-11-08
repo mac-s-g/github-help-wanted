@@ -1,16 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-  fetchLabels
+  fetchRepository
 } from './../actions'
 
 import IssueResults from './../components/IssueResults'
 
 
-const mapStateToProps = state => ({...state.issueResults})
+const mapStateToProps = state => ({
+  ...state.issueResults,
+  repositories: state.repositories.results
+})
 
 const mapDispatchToProps = dispatch => ({
-  fetchLabels: url => dispatch(fetchLabels(url))
+  fetchRepository: url => dispatch(fetchRepository(url))
 })
 
 const Results = connect(

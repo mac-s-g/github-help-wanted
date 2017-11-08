@@ -8,6 +8,7 @@ import {
 import MultiSelect from './../components/inputs/MultiSelect'
 import { constants } from './../constants'
 
+
 const {
   languages,
   labels
@@ -16,7 +17,6 @@ const {
 const DropdownContainer = Styled.div`
   margin-bottom: 4px;
 `
-
 
 class IssueFilters extends React.Component {
 
