@@ -6,12 +6,12 @@ const PATHS = {
     src: '/react/src',
     js: '/react/src/js',
     style: '/react/src/style',
-    build: '/react/dev-server',
+    build: '/react/dev-server/dist',
     devServer: '/react/dev-server',
 };
 
 const config = {
-  entry: [PATHS.js + '/entry.js'],
+  entry: [PATHS.devServer + '/js/entry.js'],
   externals: {},
   devServer: {
     host: '0.0.0.0',
@@ -28,7 +28,10 @@ const config = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
   ],
   resolve: {
     extensions: [".js", ".json", ".css", ".scss"]
@@ -43,7 +46,7 @@ const config = {
             loader: 'babel-loader'
           }
         ],
-        include: [PATHS.js]
+        include: [PATHS.js, PATHS.devServer]
       },
       {
         test: /\.(css|scss|sass)$/,

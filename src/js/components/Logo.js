@@ -8,18 +8,27 @@ const {theme}  = colors
 
 const Container = Styled.div`
   font-weight: bold;
+  line-height: 1;
+  color: white;
+  font-size: ${
+    props => props.size == 'large'
+    ? '22px'
+    : '14px'
+  }
   ${
     props => props.theme == 'dark'
     ? 'background-color: ' + theme.dark
     : ''
   };
-  line-height: 1;
-  color: white;
 `
 
 const Logo = (props) => (
-  <Container theme={props.theme}>
-    GitHub <Badge label="help-wanted" type="help_wanted" />
+  <Container theme={props.theme} size={props.size}>
+    GitHub
+    <Badge
+      label="help wanted"
+      type="help_wanted"
+      style={{fontWeight:'400', marginLeft: '0.3em'}} />
   </Container>
 )
 

@@ -19,7 +19,10 @@ const config = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ],
   resolve: {
     extensions: [".js", ".json", ".css", ".scss"]

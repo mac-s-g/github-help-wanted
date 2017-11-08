@@ -1,17 +1,26 @@
+/*-------------------------------------------------------------------------
+IMPORTANT: the development build does not use this entrypoint
+
+
+changes made to this file should be duplicated to `/dev-server/js/entry.js`
+if they are intended to affect the development build
+-------------------------------------------------------------------------*/
+
 "use strict"
+
+//promise polyfill for fetch api
+import 'babel-polyfill'
 
 //import React & ReactDOM for browser rendering
 import React from 'react'
-import ReactDOM from "react-dom"
+import {render} from "react-dom"
 
-import 'semantic-ui-css/semantic.min.css'
-import '/react/src/style/scss/global.scss'
+import Index from './containers/Index'
+import configureStore from './store'
 
-import Index from './index'
+const Store = configureStore()
 
-ReactDOM.render(
-    <div>
-        <Index />
-    </div>,
+render(
+    <Index store={Store} />,
     document.getElementById('app-container')
-);
+)
