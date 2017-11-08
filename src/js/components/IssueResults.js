@@ -60,7 +60,8 @@ const UserDetail = ({
           top: '100px',
           left: '0px',
           width: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.85)'
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          wordWrap: 'break-word'
         }}
         as='a'
         target="_blank"
