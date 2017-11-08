@@ -57,10 +57,10 @@ const UserDetail = ({
       <Label
         style={{
           position: 'absolute',
-          top: '95px',
+          top: '100px',
           left: '0px',
           width: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)'
+          backgroundColor: 'rgba(255, 255, 255, 0.85)'
         }}
         as='a'
         target="_blank"
