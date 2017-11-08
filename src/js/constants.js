@@ -1,6 +1,6 @@
 const constants = {
   project_info: {
-    statement: "Building tools to help connect developers to open source projects"
+    statement: "helping developers connect with open-source projects"
   },
   app_defaults: {
     page: 1,
