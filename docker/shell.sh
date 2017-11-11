@@ -12,6 +12,8 @@ docker run \
     -v $(pwd)/dist:/react/dist \
     -v $(pwd)/dev-server:/react/dev-server \
     -v $(pwd)/docker:/react/docker \
+    -v $(pwd)/README.md:/react/README.md \
+    -v $(pwd)/CNAME:/react/CNAME \
     -e NODE_ENV=$NODE_ENV \
     --entrypoint=/bin/bash \
     -ti github-help-wanted

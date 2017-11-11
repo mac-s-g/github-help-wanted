@@ -18,6 +18,8 @@ docker run \
     -v $(pwd)/dist:/react/dist \
     -v $(pwd)/docker:/react/docker \
     -v $(pwd)/webpack:/react/webpack \
+    -v $(pwd)/README.md:/react/README.md \
+    -v $(pwd)/CNAME:/react/CNAME \
     --name=github-help-wanted \
     -e NODE_ENV=$NODE_ENV \
     --publish 3100:3100 \

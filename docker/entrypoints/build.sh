@@ -8,3 +8,5 @@ echo Building react app...
 # now, build the app
 cd /react
 npm run build
+
+cp ./src/images/favicon.ico README.md CNAME ./dist/
