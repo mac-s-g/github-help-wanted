@@ -8,7 +8,7 @@ const formatIssueQueryParams = (filter, values) => {
     return filter + ':'
       + '"' + encodeURIComponent(value) + '"'
 
-  }).join('+')
+  }).join('+') + ' '
 }
 
 export const formatIssueQuery = (

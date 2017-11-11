@@ -7,7 +7,8 @@ const constants = {
     per_page: 10
   },
   badge: {
-    help_wanted: '#d93f0b'
+    // help_wanted: '#d93f0b'
+    help_wanted: 'rgb(18, 138, 12)'
     // help_wanted: "#33aa3f"
   },
   colors: {

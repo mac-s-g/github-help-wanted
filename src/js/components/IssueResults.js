@@ -105,7 +105,7 @@ const IssueDetail = ({
       </CommentIcon>
       <Header.Subheader
         as='a'
-        style={{marginTop:'3px'}}
+        style={{marginTop:'3px', display: 'inline-block'}}
         href={formatRepositoryUrl(issue.repository_url)}
         target="_blank">
         {formatRepositoryName(issue.repository_url)}
