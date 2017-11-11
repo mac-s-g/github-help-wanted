@@ -10,3 +10,6 @@ cd /react
 npm run build
 
 cp ./src/images/favicon.ico README.md CNAME ./dist/
+
+# when the build is ready to deploy, publish changes with:
+# `git subtree push --prefix dist origin gh-pages`
