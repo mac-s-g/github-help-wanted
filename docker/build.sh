@@ -25,3 +25,7 @@ docker run \
     --publish 3100:3100 \
     --entrypoint=/react/docker/entrypoints/build.sh \
     -t github-help-wanted
+
+
+# when the build is ready to deploy, publish changes with:
+# `git subtree push --prefix dist origin gh-pages`
