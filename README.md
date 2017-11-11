@@ -1,8 +1,8 @@
 # GitHub Help Wanted
 
-GitHub Help Wanted was built to help connect developers to open-source projects.
+GitHub Help Wanted was built to help connect developers with open-source projects.
 
-Checkout the site at [github-help-wanted.com](https://github-help-wanted.com)
+Checkout the site at [github-help-wanted.com](http://github-help-wanted.com)
 
 Find a project where the community needs your help and dive in!
 
