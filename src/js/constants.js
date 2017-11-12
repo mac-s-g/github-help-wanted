@@ -4,7 +4,7 @@ const constants = {
   },
   app_defaults: {
     page: 1,
-    per_page: 2,
+    per_page: 10,
     sort_order: '&sort=created&order=desc'
   },
   badge: {
