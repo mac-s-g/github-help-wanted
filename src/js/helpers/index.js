@@ -1,29 +1,29 @@
+import moment from 'moment'
+
 import { constants } from './../constants'
 
 const { issues_url } = constants.links.api
 const { github_url } = constants.links.internal
 
 const formatIssueQueryParams = (filter, values) => {
-  return values.map((value) => {
-    return filter + ':'
-      + '"' + encodeURIComponent(value) + '"'
+  return (values.length ? ' ' : '')
+    + values.map((value) => {
+      return filter + ':'
+        + '"' + encodeURIComponent(value) + '"'
 
-  }).join('+') + ' '
+    }).join('+')
 }
 
-export const formatIssueQuery = (
-    query_filters, page, per_page, sort='updated'
-) => (
+export const formatIssueQuery = ({
+    languages, labels, page, per_page, order
+}) => (
   issues_url
-    + '?q='
-    + 'is:issue '
-    + 'is:open '
-    + formatIssueQueryParams('language', query_filters['languages'])
-    + formatIssueQueryParams('label', query_filters['labels'])
+    + '?q=is:issue is:open'
+    + formatIssueQueryParams('language', languages)
+    + formatIssueQueryParams('label', labels)
     + '&page=' + page
     + '&per_page=' + per_page
-    + '&sort=' + sort
-    + '&order=desc'
+    + order
 )
 
 
@@ -37,3 +37,11 @@ export const formatRepositoryUrl = repository_url => (
 
 
 export const isset = (variable) => (variable !== undefined)
+
+export const formatDateForDisplay = (date_string) => {
+  return moment(date_string).format('llll')
+}
+
+export const formatNumberForDisplay = (number) => {
+  return new Intl.NumberFormat().format(number)
+}

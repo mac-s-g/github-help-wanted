@@ -4,9 +4,9 @@ import {
   fetchRepository
 } from './../actions'
 
-import IssueResults from './../components/IssueResults'
+import IssueResults from './../components/IssueResults/'
 
-
+// todo: use mixed case for all props to improve readability
 const mapStateToProps = state => ({
   ...state.issueResults,
   repositories: state.repositories.results
