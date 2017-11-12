@@ -38,8 +38,9 @@ const FixedMenuLayout = () => (
               {project_info.statement}
             </Header.Subheader>
           </Header>
-          <QueryFilters />
-          <QueryResults />
+          <QueryFilters>
+            <QueryResults />
+          </QueryFilters>
         </Container>
       </Grid.Column>
     </Grid>

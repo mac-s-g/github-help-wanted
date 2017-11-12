@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.19.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-markdown": "^2.5.0",

@@ -17,10 +17,17 @@ class MultiSelect extends React.Component {
   }
 
   render() {
-    const {additions, searchQuery} = this.state;
-    const {options, placeholder, onChange, value} = this.props;
+    const { additions, searchQuery } = this.state;
+    const {
+      onChange,
+      options,
+      placeholder,
+      style,
+      value
+    } = this.props;
 
     return <Dropdown
+      style={style}
       placeholder={placeholder}
       fluid
       search

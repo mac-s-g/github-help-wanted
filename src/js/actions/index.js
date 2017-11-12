@@ -6,7 +6,8 @@ import { constants } from './../constants'
 
 export const SELECT_LANGUAGE = 'SELECT_LANGUAGE'
 export const SELECT_LABEL = 'SELECT_LABEL'
-export const SELECT_PAGE = 'SELECT_LABEL'
+export const SELECT_PAGE = 'SELECT_PAGE'
+export const SELECT_ORDER = 'SELECT_ORDER'
 
 export const REQUEST_ISSUES = 'REQUEST_ISSUES'
 export const RECEIVE_ISSUES = 'RECEIVE_ISSUES'
@@ -33,6 +34,11 @@ export const selectPage = page => ({
   value: page
 })
 
+export const selectOrder = order => ({
+  type: SELECT_ORDER,
+  value: order
+})
+
 
 const requestIssues = query_filters => ({
   type: REQUEST_ISSUES,
@@ -55,18 +61,10 @@ const receiveIssuesError = (query_filters, error) => ({
 })
 
 
-export const fetchIssues = (
-  query_filters,
-  page,
-  per_page
-) => {
+export const fetchIssues = (query_filters) => {
   return dispatch => {
     dispatch(requestIssues(query_filters))
-    return fetch(formatIssueQuery(
-        query_filters,
-        page,
-        per_page
-      ))
+    return fetch(formatIssueQuery(query_filters))
       .then(response => response.json())
       .then(json => dispatch(
         receiveIssues(

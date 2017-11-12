@@ -19,7 +19,10 @@ const issueResults = (state = initial_state, action) => {
       return {
         ...state,
         fetch_in_progress: true,
-        fetch_issues_error: false
+        fetch_issues_error: false,
+        incomplete_results: false,
+        total_count: 0,
+        items: []
       }
     case RECEIVE_ISSUES:
       return {
@@ -34,7 +37,10 @@ const issueResults = (state = initial_state, action) => {
       return {
         ...state,
         fetch_in_progress: false,
-        fetch_issues_error: true
+        fetch_issues_error: true,
+        incomplete_results: false,
+        total_count: 0,
+        items: []
       }
     default:
       return {...state}

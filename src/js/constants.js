@@ -4,12 +4,11 @@ const constants = {
   },
   app_defaults: {
     page: 1,
-    per_page: 10
+    per_page: 10,
+    sort_order: '&sort=created&order=desc'
   },
   badge: {
-    // help_wanted: '#d93f0b'
     help_wanted: 'rgb(18, 138, 12)'
-    // help_wanted: "#33aa3f"
   },
   colors: {
     dark: '#1b1c1d',
@@ -104,6 +103,24 @@ const constants = {
       "prs welcome",
       "up for grabs",
       "urgent",
+    ],
+    sort_order: [
+      {
+        text: 'Most Commented',
+        value: '&sort=comments&order=desc'
+      },
+      {
+        text: 'Newest',
+        value: '&sort=created&order=desc'
+      },
+      {
+        text: 'Oldest',
+        value: '&sort=created&order=asc'
+      },
+      {
+        text: 'Recently Updated',
+        value: '&sort=updated&order=desc'
+      },
     ]
   }
 }
