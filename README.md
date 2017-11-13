@@ -1,4 +1,4 @@
-# GitHub Help Wanted
+# GitHub ![logo-badge](https://github.com/mac-s-g/github-help-wanted/blob/master/src/images/help-wanted-logo-sm.png?raw=true) <!-- .logo-badge height="50%" width="50%" -->
 
 GitHub Help Wanted was built to help connect developers with open-source projects.
 
@@ -49,7 +49,7 @@ The build runs in a container and outputs files into `github-help-wanted/dist/`.
 
 ### Without Docker
 
-I'd recommend using docker for development because it enforces environmental consistency and ensures
+I'd recommend using docker for development because it enforces environmental consistency.
 
 If you'd like to contribute without docker, you can use the following workflow to run the dev-server:
 
@@ -69,5 +69,4 @@ and run the build with:
 npm run build
 # copy relevant files into dist dir
 cp ./src/images/favicon.ico README.md CNAME ./dist/
-
 ```
