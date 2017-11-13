@@ -20,9 +20,6 @@ const PaginationMenu = ({
 
   return (
     <Container hidden={total_pages <= 1} >
-      <TotalResults>
-        {formatNumberForDisplay(totalResults)} total results
-      </TotalResults>
       <Menu
         style={{cursor:'pointer'}}
         pagination >
@@ -54,10 +51,6 @@ const Container = Styled.div`
   text-align: right;
   margin-top: 30px;
   display: ${props => props.hidden ? 'none' : 'block'}
-`
-
-const TotalResults = Styled.div`
-  margin-bottom: 4px;
 `
 
 export default PaginationMenu
