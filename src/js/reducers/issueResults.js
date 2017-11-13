@@ -8,10 +8,13 @@ import {
 const initial_state = {
   fetch_in_progress: false,
   fetch_issues_error: false,
+  rate_limit_exceeded: false,
   incomplete_results: false,
   total_count: 0,
   items: []
 }
+
+const exceeded_limit_url = "https://developer.github.com/v3/#rate-limiting"
 
 const issueResults = (state = initial_state, action) => {
   switch (action.type) {
@@ -20,24 +23,32 @@ const issueResults = (state = initial_state, action) => {
         ...state,
         fetch_in_progress: true,
         fetch_issues_error: false,
+        rate_limit_exceeded: false,
         incomplete_results: false,
         total_count: 0,
         items: []
       }
     case RECEIVE_ISSUES:
-      return {
-        ...state,
-        fetch_in_progress: false,
-        fetch_issues_error: false,
-        incomplete_results: action.result.incomplete_results,
-        total_count:  action.result.total_count,
-        items:  action.result.items
-      }
+      if (action.result.items !== undefined) {
+        return {
+          ...state,
+          fetch_in_progress: false,
+          fetch_issues_error: false,
+          rate_limit_exceeded: false,
+          incomplete_results: action.result.incomplete_results,
+          total_count:  action.result.total_count,
+          items:  action.result.items
+        }
+      } //else fall through to error block
     case RECEIVE_ISSUES_ERROR:
       return {
         ...state,
         fetch_in_progress: false,
         fetch_issues_error: true,
+        rate_limit_exceeded: (
+          action.result
+          && action.result.documentation_url == exceeded_limit_url
+        ),
         incomplete_results: false,
         total_count: 0,
         items: []
