@@ -69,5 +69,4 @@ and run the build with:
 npm run build
 # copy relevant files into dist dir
 cp ./src/images/favicon.ico README.md CNAME ./dist/
-
 ```
