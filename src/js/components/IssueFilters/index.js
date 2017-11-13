@@ -60,7 +60,7 @@ class IssueFilters extends React.Component {
           </Header.Content>
         </Header>
         <Header.Subheader>
-          Lanugages
+          Languages
         </Header.Subheader>
         <MultiSelect
           style={{marginBottom: '4px'}}
