@@ -35,7 +35,12 @@ const FixedMenuLayout = () => (
               GitHub Help Wanted
             </Header.Content>
             <Header.Subheader>
-              {project_info.statement}
+              <p>
+                The open-source software community is strongest when we collaborate.
+              </p>
+              <p>
+                Use this site to find projects you'd like to contribute to.
+              </p>
             </Header.Subheader>
           </Header>
           <QueryFilters>
