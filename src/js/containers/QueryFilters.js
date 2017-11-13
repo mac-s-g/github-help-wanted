@@ -10,17 +10,21 @@ import {
 
 import IssueFilters from './../components/IssueFilters/'
 
+
 const mapDispatchToProps = dispatch => {
   return {
     onLanguageSelect: (query_filters) => {
+      dispatch(selectPage(query_filters.page))
       dispatch(selectLanguage(query_filters.languages))
       dispatch(fetchIssues(query_filters))
     },
     onLabelSelect: (query_filters) => {
+      dispatch(selectPage(query_filters.page))
       dispatch(selectLabels(query_filters.labels))
       dispatch(fetchIssues(query_filters))
     },
     onOrderSelect: (query_filters) => {
+      dispatch(selectPage(query_filters.page))
       dispatch(selectOrder(query_filters.order))
       dispatch(fetchIssues(query_filters))
     },

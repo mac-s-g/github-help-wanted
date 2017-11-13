@@ -76,6 +76,7 @@ class IssueList extends React.Component {
                   <IssueDetail
                     grid_width={issue_grid_width}
                     issue={item}
+                    id={'issue-' + idx}
                     />
                 </Grid>
               </List.Item>

@@ -11,7 +11,8 @@ import {
 import Logo from './../../components/Logo'
 import {constants} from './../../constants'
 
-const {links} = constants
+const { links } = constants
+const { statement } = constants.project_info
 
 const IndexContent = () => (
   <Segment
@@ -36,14 +37,14 @@ const IndexContent = () => (
             </List>
           </Grid.Column>
           <Grid.Column width={8}>
-            <Header inverted as='h4' content='Help Wanted' />
+            <Header inverted as='h4' content='Thank You' />
               <div style={{cursor: 'default'}}>
-                <div style={{marginBottom: '3px'}}>Thanks for supporting</div>
+                <div style={{marginBottom: '3px'}}>Thanks for contributing to</div>
                 <Logo />
                 <div>and open-source projects everywhere!</div>
                 <p>
                   Show your support with a <a href={links.internal.gh_repo_url} target="_blank">
-                    <Icon name="heart" /> on <Icon name="github" />
+                    <Icon name="star" />on <Icon name="github" />
                   </a>
                 </p>
               </div>
@@ -52,6 +53,8 @@ const IndexContent = () => (
       </Grid>
 
       <Divider inverted section />
+      <Logo />
+      <p>{statement}</p>
       <List horizontal inverted divided link>
         <List.Item as='a' target="_blank" href={links.internal.gh_profile_url}>
           Contact Me

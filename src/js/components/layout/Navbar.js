@@ -48,7 +48,11 @@ const Navbar = () => (
 const GitHubIcon = Styled.div`
   position: relative;
   margin: 0px;
+  & >a {
+    padding-left: 5px !important;
+  }
   & .hover-msg {
+    width: 50px;
     transition: opacity 0.2s ease;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.08);
@@ -60,11 +64,12 @@ const GitHubIcon = Styled.div`
     bottom: 0px;
     right: 100%;
     & >div {
+      margin-left: 30px;
       opacity: 0;
-      transition-duration: 0.5s;
+      transition-duration: 0.4s;
     }
     & :nth-child(1) {
-      margin-top: 2px;
+      margin-top: 1px;
       transition-delay: 0.1s;
     }
     & :nth-child(2) {
@@ -77,6 +82,7 @@ const GitHubIcon = Styled.div`
   &:hover .hover-msg {
     opacity: 1;
     & >div {
+      margin-left: 0px;
       opacity: 1;
     }
   }
