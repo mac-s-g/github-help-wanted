@@ -131,9 +131,6 @@ class IssueDetail extends React.Component {
                 className={'issues-badges'} />
             ))}
           </List.Content>
-          {/*
-            <pre>{JSON.stringify(item, null, 2)}</pre>
-          */}
         </List.Content>
       </Grid.Column>
     )
