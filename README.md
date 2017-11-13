@@ -49,7 +49,7 @@ The build runs in a container and outputs files into `github-help-wanted/dist/`.
 
 ### Without Docker
 
-I'd recommend using docker for development because it enforces environmental consistency and ensures
+I'd recommend using docker for development because it enforces environmental consistency.
 
 If you'd like to contribute without docker, you can use the following workflow to run the dev-server:
 
