@@ -1,4 +1,4 @@
-# GitHub Help Wanted
+# GitHub ![logo-badge](https://github.com/mac-s-g/github-help-wanted/blob/master/src/images/help-wanted-logo-med.png?raw=true) <!-- .logo-badge height="50%" width="50%" -->
 
 GitHub Help Wanted was built to help connect developers with open-source projects.
 
