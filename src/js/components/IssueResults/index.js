@@ -38,7 +38,7 @@ class IssueList extends React.Component {
     } = this.props
 
     return (
-      <ResultContainer>
+      <ResultContainer className="issue-list">
         <Loader
           active={fetch_in_progress}
           size="large" />

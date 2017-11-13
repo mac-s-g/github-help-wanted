@@ -45,3 +45,10 @@ export const formatDateForDisplay = (date_string) => {
 export const formatNumberForDisplay = (number) => {
   return new Intl.NumberFormat().format(number)
 }
+
+export function scrollToTopResults() {
+  const issueListDOMComponent = document.querySelector('.issue-list')
+  if (issueListDOMComponent) {
+    issueListDOMComponent.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}

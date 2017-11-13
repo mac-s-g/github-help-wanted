@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-import { formatIssueQuery } from './../helpers'
+import { formatIssueQuery, scrollToTopResults } from './../helpers'
 import { constants } from './../constants'
 
 
@@ -72,6 +72,10 @@ export const fetchIssues = (query_filters) => {
           json
         )
       ))
+      .then(() => {
+        // When results are fetched, scroll to the top for better user experience (issue #6).
+        scrollToTopResults()
+      })
       .catch(error => {
         console.log(
           'api error occurred while fetching issues',
