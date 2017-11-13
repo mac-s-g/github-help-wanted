@@ -64,7 +64,7 @@ const GitHubIcon = Styled.div`
       transition-duration: 0.5s;
     }
     & :nth-child(1) {
-      margin-top: 2px;
+      margin-top: 1px;
       transition-delay: 0.1s;
     }
     & :nth-child(2) {

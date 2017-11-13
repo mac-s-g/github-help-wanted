@@ -71,7 +71,7 @@ class IssueFilters extends React.Component {
             onLanguageSelect({
               languages: values,
               labels: selectedLabels,
-              page: selectedPage,
+              page: 1,
               per_page: selectedPerPage,
               order: selectedOrder
             })
@@ -88,7 +88,7 @@ class IssueFilters extends React.Component {
             onLabelSelect({
               languages: selectedLanguages,
               labels: values,
-              page: selectedPage,
+              page: 1,
               per_page: selectedPerPage,
               order: selectedOrder
             })
@@ -99,7 +99,7 @@ class IssueFilters extends React.Component {
             onOrderSelect({
               languages: selectedLanguages,
               labels: selectedLabels,
-              page: selectedPage,
+              page: 1,
               per_page: selectedPerPage,
               order: value
             })
