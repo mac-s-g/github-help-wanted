@@ -56,7 +56,7 @@ class IssueFilters extends React.Component {
         <Header
           size='medium'>
           <Header.Content>
-            Personalize your Search:
+            Personalize your Search
           </Header.Content>
         </Header>
         <Header.Subheader>
