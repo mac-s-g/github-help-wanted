@@ -36,7 +36,9 @@ export const formatRepositoryUrl = repository_url => (
 )
 
 
-export const isset = (variable) => (variable !== undefined)
+export const isset = (variable) => (
+  variable !== null && variable !== undefined
+)
 
 export const formatDateForDisplay = (date_string) => {
   return moment(date_string).format('llll')

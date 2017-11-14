@@ -8,6 +8,7 @@ import {
 
 import IssueDetail from './IssueDetail'
 import UserDetail from './UserDetail'
+import FetchError from './FetchError'
 import { isset } from './../../helpers'
 
 
@@ -31,6 +32,7 @@ class IssueList extends React.Component {
     const {
       fetch_in_progress,
       fetch_issues_error,
+      rate_limit_exceeded,
       total_count,
       items,
       repositories,
@@ -42,10 +44,13 @@ class IssueList extends React.Component {
         <Loader
           active={fetch_in_progress}
           size="large" />
+        <FetchError
+          hidden={!fetch_issues_error}
+          rate_limit_exceeded={rate_limit_exceeded} />
         <List
           divided
           relaxed
-          hidden={fetch_in_progress} >
+          hidden={fetch_in_progress || fetch_issues_error} >
 
           {items.map((item, idx) => {
             const icon_grid_width = {

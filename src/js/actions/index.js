@@ -57,6 +57,7 @@ const receiveIssues = (query_filters, json) => ({
 const receiveIssuesError = (query_filters, error) => ({
   type: RECEIVE_ISSUES_ERROR,
   result: error,
+  request: query_filters,
   receivedAt: Date.now()
 })
 
@@ -82,7 +83,7 @@ export const fetchIssues = (query_filters) => {
           query_filters,
           error
         )
-        dispatch(receiveIssuesError())
+        dispatch(receiveIssuesError(query_filters, error))
       })
   }
 }

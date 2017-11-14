@@ -39,7 +39,7 @@ const FixedMenuLayout = () => (
                 The open-source software community is strongest when we collaborate.
               </p>
               <p>
-                Use this site to find projects you'd like to contribute to.
+                Use the filters below to find projects you'd like to contribute to.
               </p>
             </Header.Subheader>
           </Header>

@@ -101,6 +101,7 @@ const constants = {
       "priority: medium",
       "priority: high",
       "prs welcome",
+      "question",
       "up for grabs",
       "urgent",
     ],

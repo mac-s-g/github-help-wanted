@@ -18,7 +18,8 @@ import Badge from './../../components/Badge'
 import {
   formatRepositoryName,
   formatRepositoryUrl,
-  formatDateForDisplay
+  formatDateForDisplay,
+  isset
 } from './../../helpers'
 
 
@@ -103,7 +104,7 @@ class IssueDetail extends React.Component {
               id={"markdown-" + id}
               expanded={expanded} >
               <Markdown source={
-                issue.body.trim() == ''
+                !isset(issue.body) || issue.body.trim() == ''
                 ? 'No Description'
                 : issue.body
               } />
