@@ -62,7 +62,7 @@ const receiveIssuesError = (query_filters, error) => ({
 })
 
 
-export const fetchIssues = (query_filters) => {
+export const fetchIssues = (query_filters, scroll_to_top = false) => {
   return dispatch => {
     dispatch(requestIssues(query_filters))
     return fetch(formatIssueQuery(query_filters))
@@ -74,8 +74,11 @@ export const fetchIssues = (query_filters) => {
         )
       ))
       .then(() => {
-        // When results are fetched, scroll to the top for better user experience (issue #6).
-        scrollToTopResults()
+        // When results are fetched, scroll to the top
+        // for better user experience (issue #6).
+        if (scroll_to_top) {
+          scrollToTopResults()
+        }
       })
       .catch(error => {
         console.log(
