@@ -62,7 +62,7 @@ const IndexContent = () => (
         <List.Item as='a' target="_blank" href={
           links.internal.gh_issues_url
           + "new?title=Website%20Bug:&body=describe%20how%20to%20replicate%20the"
-          + "%20issue:%0A%0Athank%20your%20for%20contributing!"
+          + "%20issue:%0A%0Athank%20you%20for%20contributing!"
         }>
           Report a Bug
         </List.Item>
