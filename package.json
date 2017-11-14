@@ -46,8 +46,8 @@
   },
   "peerDependencies": {},
   "scripts": {
-    "build": "webpack --config /react/webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
-    "dev:hot": "webpack-dev-server --config /react/webpack/webpack.config-dev.js"
+    "build": "webpack --config webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
+    "dev:hot": "webpack-dev-server --config webpack/webpack.config-dev.js"
   },
   "keywords": [
     "community",
@@ -62,10 +62,9 @@
     "open-source-software"
   ],
   "repository": {
-    "type" : "git"
-  , "url" : "https://github.com/mac-s-g/github-help-wanted.git"
+    "type": "git",
+    "url": "https://github.com/mac-s-g/github-help-wanted.git"
   },
-  "keywords": [],
   "bugs": {
     "url": "https://github.com/mac-s-g/github-help-wanted/issues/"
   },

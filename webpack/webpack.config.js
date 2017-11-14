@@ -3,14 +3,14 @@ const webpack = require('webpack');
 const wds_port = 3100;
 
 const PATHS = {
-    src: '/react/src',
-    js: '/react/src/js',
-    style: '/react/src/style',
-    build: '/react/dist'
+  src: path.join(__dirname, '..', 'src'),
+  js: path.join(__dirname, '..', 'src', 'js'),
+  style: path.join(__dirname, '..', 'src', 'style'),
+  build: path.join(__dirname, '..', 'dev-server', 'dist'),
 };
 
 const config = {
-  entry: [PATHS.js + '/entry.js'],
+  entry: [path.join(PATHS.js, 'entry.js')],
   externals: {},
   output: {
     path: PATHS.build,
