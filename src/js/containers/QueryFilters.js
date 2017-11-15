@@ -13,6 +13,10 @@ import IssueFilters from './../components/IssueFilters/'
 
 const mapDispatchToProps = dispatch => {
   return {
+    onInitialMount: (query_filters) => {
+      //initial result population
+      dispatch(fetchIssues(query_filters))
+    },
     onLanguageSelect: (query_filters) => {
       dispatch(selectPage(query_filters.page))
       dispatch(selectLanguage(query_filters.languages))
@@ -29,8 +33,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(fetchIssues(query_filters))
     },
     onPageSelect: (query_filters) => {
+      //trigger scroll to top when results are returned
+      const scroll_to_top = true
       dispatch(selectPage(query_filters.page))
-      dispatch(fetchIssues(query_filters))
+      dispatch(fetchIssues(query_filters, scroll_to_top))
     }
   }
 }

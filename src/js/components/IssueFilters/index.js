@@ -27,7 +27,7 @@ class IssueFilters extends React.Component {
       selectedOrder
     } = this.props
     //load api results with default filters
-    this.props.onLanguageSelect({
+    this.props.onInitialMount({
       languages: selectedLanguages,
       labels: selectedLabels,
       page: selectedPage,
