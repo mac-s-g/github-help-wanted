@@ -1,4 +1,4 @@
-# GitHub ![logo-badge](https://github.com/mac-s-g/github-help-wanted/blob/master/src/images/help-wanted-logo-sm.png?raw=true) <!-- .logo-badge height="50%" width="50%" -->
+![logo-badge](https://github.com/mac-s-g/github-help-wanted/blob/master/src/images/logo-full.png?raw=true)
 
 GitHub Help Wanted was built to help connect developers with open-source projects.
 
@@ -6,19 +6,22 @@ Checkout the site at [github-help-wanted.com](http://github-help-wanted.com)
 
 Find a project where the community needs your help and dive in!
 
-## Help Wanted!
+### Help Wanted!
 
-I want your help too!  You're welcome to create an issue or post a pull request.
+I want your help too!  
 
-Detail on how to setup your development environment is provided below.
+I encourage you to:
+ * :star: this project
+ * create an issue
+ * post a pull request
 
-## How to Contribute
+### How to Contribute
 
 This website is written with [React](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux) using the [Semantic-UI-React](https://react.semantic-ui.com) css framework.
 
 *note: `sudo` may be required for docker interaction based on your installation config.*
 
-### Run the Dev Server
+#### Run the Dev Server
 
 To run the website in a local environment:
 
@@ -36,7 +39,7 @@ To run the website in a local environment:
 
  *notes: if you change the dependencies in `package.json`, make sure you rebulid the container with `./docker/build-container.sh`.*
 
-### Run the Production Build
+#### Run the Production Build
 
 The build runs in a container and outputs files into `github-help-wanted/dist/`.  Here's how to instantiate the build process:
 
@@ -47,7 +50,7 @@ The build runs in a container and outputs files into `github-help-wanted/dist/`.
      * open `index.html` in a web browser
 4. If your changes look good, send me a pull request!
 
-### Without Docker
+#### Without Docker
 
 I'd recommend using docker for development because it enforces environmental consistency.
 
