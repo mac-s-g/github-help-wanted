@@ -12,7 +12,7 @@ I want your help too!
 
 I encourage you to:
  * :star: this project
- * create an issue
+ * checkout the open issues, or create an issue
  * post a pull request
 
 ### How to Contribute
