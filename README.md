@@ -50,4 +50,4 @@ cp ./src/images/favicon.ico README.md CNAME ./dist/
 
 I'd recommend using docker for development because it enforces environmental consistency.
 
-If you'd like to develop with docker, checkout the README in `/docker/`.
+If you're interested in using docker to develop with docker, checkout the contribution instructions in `/docker/README.md`.
