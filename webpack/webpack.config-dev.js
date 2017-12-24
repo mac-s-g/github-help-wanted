@@ -7,7 +7,7 @@ const PATHS = {
   js: path.join(__dirname, '..', 'src', 'js'),
   style: path.join(__dirname, '..', 'src', 'style'),
   build: path.join(__dirname, '..', 'dev-server', 'dist'),
-  devServer: path.join(__dirname, '..', 'dev-server'),
+  devServer: path.join(__dirname, '..', 'dev-server')
 };
 
 const config = {

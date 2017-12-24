@@ -15,7 +15,7 @@ import 'babel-polyfill'
 import React from 'react'
 import {render} from "react-dom"
 
-import Index from './../../src/js/containers/Index'
+import Index from './../../src/js/containers/'
 import configureStore from './store'
 import DevTools from './containers/DevTools'
 
