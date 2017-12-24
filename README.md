@@ -48,6 +48,6 @@ cp ./src/images/favicon.ico README.md CNAME ./dist/
 
 #### With Docker
 
-I'd recommend using docker for development because it enforces environmental consistency.
+I recommend using docker for development because it enforces environmental consistency.
 
 If you're interested in using docker for development, checkout the [contribution instructions](https://github.com/mac-s-g/github-help-wanted/blob/master/docker/README.md) in `/docker/README.md`.
