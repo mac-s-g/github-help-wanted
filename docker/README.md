@@ -1,6 +1,6 @@
 ### Docker Development Tools
 
-You can use tools in this folder to use develop in a docker container.  Developing in a docker container will ensure environmental consistency and prevent dependencies from getting installed directly onto your file system.  [Here is more documentation](https://github.com/mac-s-g/react-json-view/blob/master/docker/README.md) about using docker when developing javascript applications.
+You can use tools in this folder to use develop in a docker container.  Developing in a docker container will ensure environmental consistency and prevent dependencies from getting installed directly onto your file system.  [Here is more documentation](https://github.com/mac-s-g/react-json-view/tree/master/docker#motivation-for-adding-docker-to-your-development-stack) about using docker when developing javascript applications.
 
 #### Run the Dev Server
 
