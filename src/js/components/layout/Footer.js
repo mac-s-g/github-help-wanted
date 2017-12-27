@@ -8,6 +8,7 @@ import {
     List,
     Segment
 } from 'semantic-ui-react'
+import Styled from 'styled-components'
 import Logo from './../../components/Logo'
 import {constants} from './../../constants'
 
@@ -18,7 +19,7 @@ const IndexContent = () => (
   <Segment
     inverted
     vertical
-    style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
+    as={FooterSegment}
   >
     <Container textAlign='center'>
       <Grid divided inverted stackable>
@@ -75,5 +76,11 @@ const IndexContent = () => (
     </Container>
   </Segment>
 )
+
+const FooterSegment = Styled.div`
+  margin: 5em 0em 0em !important;
+  padding: 5em 0em !important;
+  background-color: ${constants.colors.dark} !important;
+`
 
 export default IndexContent

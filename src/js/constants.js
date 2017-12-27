@@ -11,8 +11,10 @@ const constants = {
     help_wanted: 'rgb(18, 138, 12)'
   },
   colors: {
-    dark: '#1b1c1d',
-    light: '#fff'
+    dark: '#333',
+    gray: '#aaa',
+    light: '#fff',
+    green: 'rgb(18, 138, 12)'
   },
   links: {
     internal: {

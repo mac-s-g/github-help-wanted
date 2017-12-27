@@ -14,10 +14,11 @@ const {links} = constants;
 
 
 const Navbar = () => (
+  <div>
     <Menu
       attached='top'
       inverted
-      style={{borderRadius:'0px'}}>
+      as={HeaderComponent}>
       <Container>
         <Menu.Item as='a' header>
           <Logo size="large"/>
@@ -64,20 +65,35 @@ const Navbar = () => (
         </Menu.Menu>
       </Container>
     </Menu>
+    <SecondaryBanner />
+  </div>
 )
+
+const HeaderComponent = Styled.div`
+  height: 80px;
+  border-radius: 0px !important;
+  background-color: ${constants.colors.dark} !important;
+`
+
+const SecondaryBanner = Styled.div`
+  height: 7px;
+  background-color: ${constants.colors.gray};
+  width: 100%;
+`
 
 const GitHubIcon = Styled.div`
   position: relative;
   margin: 0px;
   & >a {
     padding-left: 5px !important;
+    height: 100%;
   }
   & .hover-msg {
     width: 50px;
     transition: opacity 0.2s ease;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.08);
-    padding: 5px 0px 5px 15px;
+    padding: 17px 0px 0px 15px;
     border-left: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
     position: absolute;
