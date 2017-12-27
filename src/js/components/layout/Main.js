@@ -28,21 +28,24 @@ const FixedMenuLayout = () => (
         width={16} >
         <Container
           style={{ marginBottom: '4em' }} >
+          <Container>
           <Header
             style={{marginBottom: '2em'}}
             size='large' >
-            <Header.Content>
-              GitHub Help Wanted
+            <Header.Content
+              style={{marginBottom: '0.33em'}}>
+              Become a Contributor
             </Header.Content>
             <Header.Subheader>
               <p>
-                The open-source software community is strongest when we collaborate.
+                The open-source community is strongest when we collaborate - and projects are looking for your help.
               </p>
               <p>
                 Use the filters below to find projects you'd like to contribute to.
               </p>
             </Header.Subheader>
           </Header>
+          </Container>
           <QueryFilters>
             <QueryResults />
           </QueryFilters>

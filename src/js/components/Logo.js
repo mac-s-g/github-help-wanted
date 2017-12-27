@@ -24,7 +24,7 @@ const Container = Styled.div`
 
 const Logo = (props) => (
   <Container theme={props.theme} size={props.size}>
-    GitHub
+    <span>GitHub</span>
     <Badge
       label="help wanted"
       type="help_wanted"
