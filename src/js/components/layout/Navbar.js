@@ -1,44 +1,33 @@
-import React from 'react'
-import Styled from 'styled-components'
-import {
-    Container,
-    Menu,
-    Icon,
-    Dropdown
-} from 'semantic-ui-react'
+import React from "react"
+import Styled from "styled-components"
+import { Container, Menu, Icon, Dropdown } from "semantic-ui-react"
 
-import Logo from './../../components/Logo'
-import {constants} from './../../constants'
+import Logo from "./../../components/Logo"
+import { constants } from "./../../constants"
 
-const {links} = constants;
-
+const { links } = constants
 
 const Navbar = () => (
   <div>
-    <Menu
-      attached='top'
-      inverted
-      as={HeaderComponent}>
+    <Menu attached="top" inverted as={HeaderComponent}>
       <Container>
-        <Menu.Item as='a' header>
-          <Logo size="large"/>
+        <Menu.Item as="a" header>
+          <Logo size="large" />
         </Menu.Item>
         <Menu.Menu position="right">
           <GitHubIcon>
-          <Menu.Item
-            fixed='right'
-            as='a'
-            href={links.internal.gh_repo_url}
-            target="_blank" >
-            <Icon
-              style={{margin: '0px'}}
-              name="github"
-              size="big" />
-            <div class="hover-msg">
-              <div>read</div>
-              <div>the</div>
-              <div>code</div>
-              {/*
+            <Menu.Item
+              fixed="right"
+              as="a"
+              href={links.internal.gh_repo_url}
+              target="_blank"
+            >
+              <Icon style={{ margin: "0px" }} name="github" size="big" />
+              <div class="hover-msg">
+                <div>read</div>
+                <div>the</div>
+                <div>code</div>
+                {/*
                 ░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░
                 ░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌░░░
                 ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░
@@ -59,26 +48,19 @@ const Navbar = () => (
                 ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░
                 ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░
                */}
-            </div>
-          </Menu.Item>
+              </div>
+            </Menu.Item>
           </GitHubIcon>
         </Menu.Menu>
       </Container>
     </Menu>
-    <SecondaryBanner />
   </div>
 )
 
 const HeaderComponent = Styled.div`
-  height: 80px;
+  height: 70px;
   border-radius: 0px !important;
   background-color: ${constants.colors.dark} !important;
-`
-
-const SecondaryBanner = Styled.div`
-  height: 7px;
-  background-color: ${constants.colors.gray};
-  width: 100%;
 `
 
 const GitHubIcon = Styled.div`
@@ -93,7 +75,7 @@ const GitHubIcon = Styled.div`
     transition: opacity 0.2s ease;
     opacity: 0;
     background-color: rgba(255, 255, 255, 0.08);
-    padding: 17px 0px 0px 15px;
+    padding: 12px 0px 0px 15px;
     border-left: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
     position: absolute;

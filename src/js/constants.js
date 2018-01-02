@@ -5,28 +5,29 @@ const constants = {
   app_defaults: {
     page: 1,
     per_page: 10,
-    sort_order: '&sort=created&order=desc'
+    sort_order: "&sort=created&order=desc"
   },
   badge: {
-    help_wanted: 'rgb(18, 138, 12)'
+    help_wanted: "rgb(18, 138, 12)"
   },
   colors: {
-    dark: '#333',
-    gray: '#aaa',
-    light: '#fff',
-    green: 'rgb(18, 138, 12)'
+    dark: "#222",
+    gray: "#aaa",
+    light: "#fff",
+    green: "rgb(18, 138, 12)"
   },
   links: {
     internal: {
       gh_repo_url: "https://github.com/mac-s-g/github-help-wanted/",
       gh_issues_url: "https://github.com/mac-s-g/github-help-wanted/issues/",
       gh_profile_url: "https://github.com/mac-s-g/",
-      license_url: "https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE",
+      license_url:
+        "https://github.com/mac-s-g/github-help-wanted/blob/master/LICENSE",
       site_url: "https://mac-s-g.github.io/github-help-wanted/dist/index.html",
       github_url: "https://github.com/"
     },
     api: {
-      issues_url: 'https://api.github.com/search/issues'
+      issues_url: "https://api.github.com/search/issues"
     },
     external: {
       "Up For Grabs": "http://up-for-grabs.net/#/",
@@ -37,50 +38,50 @@ const constants = {
   },
   search_filters: {
     languages: [
-      'ActionScript',
-      'Arduino',
-      'ASP',
-      'C',
-      'C++',
-      'C#',
-      'Clojure',
-      'ClojureScript',
-      'CSS',
-      'CoffeeScript',
-      'Elm',
-      'Elixir',
-      'Emacs Lisp',
-      'Erlang',
-      'Fortran',
-      'Go',
-      'Groovy',
-      'Haskell',
-      'HTML',
-      'Java',
-      'JavaScript',
-      'Lisp',
-      'Lua',
-      'Makefile',
-      'Matlab',
-      'Objective-C',
-      'OCaml',
-      'Pascal',
-      'Perl',
-      'PHP',
-      'PowerShell',
-      'Puppet',
-      'Python',
-      'R',
-      'Ruby',
-      'Rust',
-      'Scala',
-      'Shell',
-      'SQL',
-      'Swift',
-      'TeX',
-      'TypeScript',
-      'VimL',
-      'Visual Basic'
+      "ActionScript",
+      "Arduino",
+      "ASP",
+      "C",
+      "C++",
+      "C#",
+      "Clojure",
+      "ClojureScript",
+      "CSS",
+      "CoffeeScript",
+      "Elm",
+      "Elixir",
+      "Emacs Lisp",
+      "Erlang",
+      "Fortran",
+      "Go",
+      "Groovy",
+      "Haskell",
+      "HTML",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Lua",
+      "Makefile",
+      "Matlab",
+      "Objective-C",
+      "OCaml",
+      "Pascal",
+      "Perl",
+      "PHP",
+      "PowerShell",
+      "Puppet",
+      "Python",
+      "R",
+      "Ruby",
+      "Rust",
+      "Scala",
+      "Shell",
+      "SQL",
+      "Swift",
+      "TeX",
+      "TypeScript",
+      "VimL",
+      "Visual Basic"
     ],
     labels: [
       "bug",
@@ -105,27 +106,27 @@ const constants = {
       "prs welcome",
       "question",
       "up for grabs",
-      "urgent",
+      "urgent"
     ],
     sort_order: [
       {
-        text: 'Most Commented',
-        value: '&sort=comments&order=desc'
+        text: "Most Commented",
+        value: "&sort=comments&order=desc"
       },
       {
-        text: 'Newest',
-        value: '&sort=created&order=desc'
+        text: "Newest",
+        value: "&sort=created&order=desc"
       },
       {
-        text: 'Oldest',
-        value: '&sort=created&order=asc'
+        text: "Oldest",
+        value: "&sort=created&order=asc"
       },
       {
-        text: 'Recently Updated',
-        value: '&sort=updated&order=desc'
-      },
+        text: "Recently Updated",
+        value: "&sort=updated&order=desc"
+      }
     ]
   }
 }
 
-export {constants as constants}
+export { constants }
