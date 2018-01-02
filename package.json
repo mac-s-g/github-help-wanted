@@ -48,7 +48,7 @@
   "peerDependencies": {},
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js -p --display-error-details --progress --optimize-minimize",
-    "dev:hot": "webpack-dev-server --config webpack/webpack.config-dev.js --open"
+    "dev": "webpack-dev-server --config webpack/webpack.config-dev.js --open"
   },
   "keywords": [
     "community",
