@@ -7,4 +7,4 @@ export NODE_ENV=${NODE_ENV:-development}
 echo Running Dev Server...
 
 cd /react
-exec npm run dev:hot
+exec npm run dev
