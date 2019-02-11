@@ -25,17 +25,34 @@ class IssueFilters extends React.Component {
       selectedPage,
       selectedPerPage,
       selectedSort,
-      selectedOrder
+      selectedOrder,
+      location
     } = this.props
-    //load api results with default filters
-    this.props.onInitialMount({
+
+    let query_filters = {
       languages: selectedLanguages,
       labels: selectedLabels,
       page: selectedPage,
       per_page: selectedPerPage,
       sort: selectedSort,
-      order: selectedOrder
-    })
+      order: selectedOrder,
+    }
+
+    if (location.search) {
+      // Set initial state from URL params
+      const parsed = new URLSearchParams(location.search)
+      query_filters = {
+        ...query_filters,
+        languages: (parsed.get('languages') || '').split(','),
+        labels: (parsed.get('labels') || '').split(','),
+        page: Number.parseInt(parsed.get('page')),
+        sort: parsed.get('sort'),
+        order: parsed.get('order')
+      }
+    }
+
+    //load api results with default filters
+    this.props.onInitialMount(query_filters)
   }
 
   render() {

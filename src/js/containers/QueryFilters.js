@@ -15,6 +15,13 @@ import IssueFilters from './../components/IssueFilters/'
 const mapDispatchToProps = dispatch => {
   return {
     onInitialMount: (query_filters) => {
+      dispatch(selectPage(query_filters.page))
+      dispatch(selectLanguage(query_filters.languages))
+      dispatch(selectLabels(query_filters.labels))
+      dispatch(selectSortOrder({
+        sort: query_filters.sort,
+        order: query_filters.order
+      }))
       //initial result population
       dispatch(fetchIssues(query_filters))
     },
@@ -61,7 +68,8 @@ const mapStateToProps = state => {
     selectedSort,
     selectedOrder,
     selectedSortOrder,
-    totalResults: state.issueResults.total_count
+    totalResults: state.issueResults.total_count,
+    location: state.router.location
   }
 }
 
