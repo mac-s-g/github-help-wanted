@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import {
   selectLanguage,
   selectLabels,
-  selectOrder,
   selectPage,
+  selectSortOrder,
   updateSearchParams,
   fetchIssues
 } from './../actions'
@@ -30,9 +30,12 @@ const mapDispatchToProps = dispatch => {
       dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters))
     },
-    onOrderSelect: (query_filters) => {
+    onSortOrderSelect: (query_filters) => {
       dispatch(selectPage(query_filters.page))
-      dispatch(selectOrder(query_filters.order))
+      dispatch(selectSortOrder({
+        sort: query_filters.sort,
+        order: query_filters.order
+      }))
       dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters))
     },
@@ -47,12 +50,17 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
+  const selectedSort = state.issueFilters.sort
+  const selectedOrder = state.issueFilters.order
+  const selectedSortOrder = '&sort=' + selectedSort + '&order=' + selectedOrder
   return {
     selectedLanguages: state.issueFilters.languages,
     selectedLabels: state.issueFilters.labels,
     selectedPage: state.issueFilters.page,
     selectedPerPage: state.issueFilters.results_per_page,
-    selectedOrder: state.issueFilters.order,
+    selectedSort,
+    selectedOrder,
+    selectedSortOrder,
     totalResults: state.issueResults.total_count
   }
 }

@@ -15,7 +15,7 @@ const formatIssueQueryParams = (filter, values) => {
 }
 
 export const formatIssueQuery = ({
-    languages, labels, page, per_page, order
+    languages, labels, page, per_page, sort, order
 }) => (
   issues_url
     + '?q=is:issue is:open'
@@ -23,7 +23,8 @@ export const formatIssueQuery = ({
     + formatIssueQueryParams('label', labels)
     + '&page=' + page
     + '&per_page=' + per_page
-    + order
+    + '&sort=' + sort
+    + '&order=' + order
 )
 
 

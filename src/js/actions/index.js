@@ -7,7 +7,7 @@ import { history } from '../store/middleware'
 export const SELECT_LANGUAGE = 'SELECT_LANGUAGE'
 export const SELECT_LABEL = 'SELECT_LABEL'
 export const SELECT_PAGE = 'SELECT_PAGE'
-export const SELECT_ORDER = 'SELECT_ORDER'
+export const SELECT_SORT_ORDER = 'SELECT_SORT_ORDER'
 
 export const UPDATE_SEARCH_PARAMS = 'UPDATE_SEARCH_PARAMS'
 
@@ -36,18 +36,21 @@ export const selectPage = page => ({
   value: page
 })
 
-export const selectOrder = order => ({
-  type: SELECT_ORDER,
-  value: order
+export const selectSortOrder = sort_order => ({
+  type: SELECT_SORT_ORDER,
+  value: sort_order
 })
 
 
-export const updateSearchParams = ({ languages, labels, page, order }) => {
-  const searchParams = new URLSearchParams()
-  searchParams.set('languages', languages)
-  searchParams.set('labels', labels)
-  searchParams.set('page', page)
-  history.push({ search: '?' + searchParams.toString() + order })
+export const updateSearchParams = ({ languages, labels, page, sort, order }) => {
+  const searchParams = new URLSearchParams({
+    languages,
+    labels,
+    page,
+    sort,
+    order
+  })
+  history.push({ search: '?' + searchParams.toString() })
   return { type: UPDATE_SEARCH_PARAMS }
 }
 

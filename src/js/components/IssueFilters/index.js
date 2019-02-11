@@ -24,6 +24,7 @@ class IssueFilters extends React.Component {
       selectedLabels,
       selectedPage,
       selectedPerPage,
+      selectedSort,
       selectedOrder
     } = this.props
     //load api results with default filters
@@ -32,6 +33,7 @@ class IssueFilters extends React.Component {
       labels: selectedLabels,
       page: selectedPage,
       per_page: selectedPerPage,
+      sort: selectedSort,
       order: selectedOrder
     })
   }
@@ -45,8 +47,10 @@ class IssueFilters extends React.Component {
       selectedPage,
       selectedPerPage,
       onPageSelect,
+      selectedSort,
       selectedOrder,
-      onOrderSelect,
+      selectedSortOrder,
+      onSortOrderSelect,
       totalResults,
       children
     } = this.props
@@ -73,6 +77,7 @@ class IssueFilters extends React.Component {
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
+              sort: selectedSort,
               order: selectedOrder
             })
           }} />
@@ -90,18 +95,21 @@ class IssueFilters extends React.Component {
               labels: values,
               page: 1,
               per_page: selectedPerPage,
+              sort: selectedSort,
               order: selectedOrder
             })
           }} />
         <ResultOrder
-          value={selectedOrder}
+          value={selectedSortOrder}
           onChange={(value) => {
-            onOrderSelect({
+            const parsed = new URLSearchParams(value)
+            onSortOrderSelect({
               languages: selectedLanguages,
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
-              order: value
+              sort: parsed.get('sort'),
+              order: parsed.get('order')
             })
           }} />
           {children}
@@ -115,6 +123,7 @@ class IssueFilters extends React.Component {
                 labels: selectedLabels,
                 page: value,
                 per_page: selectedPerPage,
+                sort: selectedSort,
                 order: selectedOrder
               })
             }} />
