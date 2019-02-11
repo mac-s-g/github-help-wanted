@@ -5,6 +5,7 @@ import {
   selectLabels,
   selectOrder,
   selectPage,
+  updateSearchParams,
   fetchIssues
 } from './../actions'
 
@@ -20,22 +21,26 @@ const mapDispatchToProps = dispatch => {
     onLanguageSelect: (query_filters) => {
       dispatch(selectPage(query_filters.page))
       dispatch(selectLanguage(query_filters.languages))
+      dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters))
     },
     onLabelSelect: (query_filters) => {
       dispatch(selectPage(query_filters.page))
       dispatch(selectLabels(query_filters.labels))
+      dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters))
     },
     onOrderSelect: (query_filters) => {
       dispatch(selectPage(query_filters.page))
       dispatch(selectOrder(query_filters.order))
+      dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters))
     },
     onPageSelect: (query_filters) => {
       //trigger scroll to top when results are returned
       const scroll_to_top = true
       dispatch(selectPage(query_filters.page))
+      dispatch(updateSearchParams(query_filters))
       dispatch(fetchIssues(query_filters, scroll_to_top))
     }
   }

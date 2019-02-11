@@ -2,12 +2,14 @@ import fetch from 'isomorphic-fetch'
 
 import { formatIssueQuery, scrollToTopResults } from './../helpers'
 import { constants } from './../constants'
-
+import { history } from '../store/middleware'
 
 export const SELECT_LANGUAGE = 'SELECT_LANGUAGE'
 export const SELECT_LABEL = 'SELECT_LABEL'
 export const SELECT_PAGE = 'SELECT_PAGE'
 export const SELECT_ORDER = 'SELECT_ORDER'
+
+export const UPDATE_SEARCH_PARAMS = 'UPDATE_SEARCH_PARAMS'
 
 export const REQUEST_ISSUES = 'REQUEST_ISSUES'
 export const RECEIVE_ISSUES = 'RECEIVE_ISSUES'
@@ -38,6 +40,16 @@ export const selectOrder = order => ({
   type: SELECT_ORDER,
   value: order
 })
+
+
+export const updateSearchParams = ({ languages, labels, page, order }) => {
+  const searchParams = new URLSearchParams()
+  searchParams.set('languages', languages)
+  searchParams.set('labels', labels)
+  searchParams.set('page', page)
+  history.push({ search: '?' + searchParams.toString() + order })
+  return { type: UPDATE_SEARCH_PARAMS }
+}
 
 
 const requestIssues = query_filters => ({
