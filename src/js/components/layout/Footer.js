@@ -1,0 +1,86 @@
+import React from 'react'
+import {
+    Container,
+    Divider,
+    Grid,
+    Header,
+    Icon,
+    List,
+    Segment
+} from 'semantic-ui-react'
+import Styled from 'styled-components'
+import Logo from './../../components/Logo'
+import {constants} from './../../constants'
+
+const { links } = constants
+const { statement } = constants.project_info
+
+const IndexContent = () => (
+  <Segment
+    inverted
+    vertical
+    as={FooterSegment}
+  >
+    <Container textAlign='center'>
+      <Grid divided inverted stackable>
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <Header inverted as='h4' content='Related Projects' />
+            <List link inverted>
+              {Object.keys(links.external).map((name) => (
+                <List.Item
+                  key={links.external[name]}
+                  as='a' target="_blank"
+                  href={links.external[name]}>
+                  {name}
+                </List.Item>
+              ))}
+            </List>
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <Header inverted as='h4' content='Thank You' />
+              <div style={{cursor: 'default'}}>
+                <div style={{marginBottom: '3px'}}>Thanks for contributing to</div>
+                <Logo />
+                <div>and open-source projects everywhere!</div>
+                <p>
+                  Show your support with a <a href={links.internal.gh_repo_url} target="_blank">
+                    <Icon name="star" />on <Icon name="github" />
+                  </a>
+                </p>
+              </div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
+      <Divider inverted section />
+      <Logo />
+      <p>{statement}</p>
+      <List horizontal inverted divided link>
+        <List.Item as='a' target="_blank" href={links.internal.gh_profile_url}>
+          Contact Me
+        </List.Item>
+        <List.Item as='a' target="_blank" href={
+          links.internal.gh_issues_url
+          + "new?title=Website%20Bug:&body=describe%20how%20to%20replicate%20the"
+          + "%20issue:%0A%0Athank%20you%20for%20contributing!"
+        }>
+          Report a Bug
+        </List.Item>
+        <List.Item
+          as='a' target="_blank"
+          href={links.internal.license_url}>
+          Product License
+        </List.Item>
+      </List>
+    </Container>
+  </Segment>
+)
+
+const FooterSegment = Styled.div`
+  margin: 5em 0em 0em !important;
+  padding: 5em 0em !important;
+  background-color: ${constants.colors.dark} !important;
+`
+
+export default IndexContent
