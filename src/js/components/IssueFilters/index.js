@@ -1,23 +1,19 @@
-import React from 'react'
-import Styled from 'styled-components'
-import {
-  Container,
-  Header
-} from 'semantic-ui-react'
+import React, { Component } from "react"
+import Styled from "styled-components"
+import { Container, Header } from "semantic-ui-react"
 
-import MultiSelect from './../../components/inputs/MultiSelect'
-import PaginationMenu from './PaginationMenu'
-import ResultOrder from './ResultOrder'
-import { constants } from './../../constants'
+import MultiSelect from "./../../components/inputs/MultiSelect"
+import PaginationMenu from "./PaginationMenu"
+import ResultOrder from "./ResultOrder"
+import { constants } from "./../../constants"
 
+const { languages, labels } = constants.search_filters
 
-const {
-  languages,
-  labels
-} = constants.search_filters;
+const FilterTitle = Styled(Header.Subheader)`
+  margin: 0.33em 0;
+`
 
-class IssueFilters extends React.Component {
-
+class IssueFilters extends Component {
   componentDidMount() {
     const {
       selectedLanguages,
@@ -35,7 +31,7 @@ class IssueFilters extends React.Component {
       page: selectedPage,
       per_page: selectedPerPage,
       sort: selectedSort,
-      order: selectedOrder,
+      order: selectedOrder
     }
 
     if (location.search) {
@@ -43,11 +39,11 @@ class IssueFilters extends React.Component {
       const parsed = new URLSearchParams(location.search)
       query_filters = {
         ...query_filters,
-        languages: (parsed.get('languages') || '').split(','),
-        labels: (parsed.get('labels') || '').split(','),
-        page: Number.parseInt(parsed.get('page')),
-        sort: parsed.get('sort'),
-        order: parsed.get('order')
+        languages: (parsed.get("languages") || "").split(","),
+        labels: (parsed.get("labels") || "").split(","),
+        page: Number.parseInt(parsed.get("page")),
+        sort: parsed.get("sort"),
+        order: parsed.get("order")
       }
     }
 
@@ -74,21 +70,16 @@ class IssueFilters extends React.Component {
 
     return (
       <Container>
-        <Header
-          size='medium'>
-          <Header.Content>
-            Narrow your Search
-          </Header.Content>
+        <Header size="medium">
+          <Header.Content>Narrow your Search</Header.Content>
         </Header>
-        <Header.Subheader>
-          Languages
-        </Header.Subheader>
+        <FilterTitle>Languages</FilterTitle>
         <MultiSelect
-          style={{marginBottom: '4px'}}
-          placeholder='Filter by Language'
+          style={{ marginBottom: "4px" }}
+          placeholder="Filter by Language"
           options={languages}
           value={selectedLanguages}
-          onChange={(values) => {
+          onChange={values => {
             onLanguageSelect({
               languages: values,
               labels: selectedLabels,
@@ -97,16 +88,15 @@ class IssueFilters extends React.Component {
               sort: selectedSort,
               order: selectedOrder
             })
-          }} />
-        <Header.Subheader>
-          Labels
-        </Header.Subheader>
+          }}
+        />
+        <FilterTitle>Labels</FilterTitle>
         <MultiSelect
-          style={{marginBottom: '4px'}}
-          placeholder='Filter by Label'
+          style={{ marginBottom: "4px" }}
+          placeholder="Filter by Label"
           options={labels}
           value={selectedLabels}
-          onChange={(values) => {
+          onChange={values => {
             onLabelSelect({
               languages: selectedLanguages,
               labels: values,
@@ -115,39 +105,41 @@ class IssueFilters extends React.Component {
               sort: selectedSort,
               order: selectedOrder
             })
-          }} />
+          }}
+        />
         <ResultOrder
           value={selectedSortOrder}
-          onChange={(value) => {
+          onChange={value => {
             const parsed = new URLSearchParams(value)
             onSortOrderSelect({
               languages: selectedLanguages,
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
-              sort: parsed.get('sort'),
-              order: parsed.get('order')
+              sort: parsed.get("sort"),
+              order: parsed.get("order")
             })
-          }} />
-          {children}
-          <PaginationMenu
-            selectedPage={selectedPage}
-            selectedPerPage={selectedPerPage}
-            totalResults={totalResults}
-            onChange={(value) => {
-              onPageSelect({
-                languages: selectedLanguages,
-                labels: selectedLabels,
-                page: value,
-                per_page: selectedPerPage,
-                sort: selectedSort,
-                order: selectedOrder
-              })
-            }} />
+          }}
+        />
+        {children}
+        <PaginationMenu
+          selectedPage={selectedPage}
+          selectedPerPage={selectedPerPage}
+          totalResults={totalResults}
+          onChange={value => {
+            onPageSelect({
+              languages: selectedLanguages,
+              labels: selectedLabels,
+              page: value,
+              per_page: selectedPerPage,
+              sort: selectedSort,
+              order: selectedOrder
+            })
+          }}
+        />
       </Container>
     )
   }
 }
-
 
 export default IssueFilters

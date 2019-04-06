@@ -15,7 +15,8 @@ const constants = {
     dark: "#222",
     gray: "#aaa",
     light: "#fff",
-    green: "rgb(18, 138, 12)"
+    green: "rgb(18, 138, 12)",
+    blue: "#4183c4"
   },
   links: {
     internal: {
