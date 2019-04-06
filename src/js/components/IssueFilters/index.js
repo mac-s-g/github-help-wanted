@@ -24,16 +24,35 @@ class IssueFilters extends React.Component {
       selectedLabels,
       selectedPage,
       selectedPerPage,
-      selectedOrder
+      selectedSort,
+      selectedOrder,
+      location
     } = this.props
-    //load api results with default filters
-    this.props.onInitialMount({
+
+    let query_filters = {
       languages: selectedLanguages,
       labels: selectedLabels,
       page: selectedPage,
       per_page: selectedPerPage,
-      order: selectedOrder
-    })
+      sort: selectedSort,
+      order: selectedOrder,
+    }
+
+    if (location.search) {
+      // Set initial state from URL params
+      const parsed = new URLSearchParams(location.search)
+      query_filters = {
+        ...query_filters,
+        languages: (parsed.get('languages') || '').split(','),
+        labels: (parsed.get('labels') || '').split(','),
+        page: Number.parseInt(parsed.get('page')),
+        sort: parsed.get('sort'),
+        order: parsed.get('order')
+      }
+    }
+
+    //load api results with default filters
+    this.props.onInitialMount(query_filters)
   }
 
   render() {
@@ -45,8 +64,10 @@ class IssueFilters extends React.Component {
       selectedPage,
       selectedPerPage,
       onPageSelect,
+      selectedSort,
       selectedOrder,
-      onOrderSelect,
+      selectedSortOrder,
+      onSortOrderSelect,
       totalResults,
       children
     } = this.props
@@ -73,6 +94,7 @@ class IssueFilters extends React.Component {
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
+              sort: selectedSort,
               order: selectedOrder
             })
           }} />
@@ -90,18 +112,21 @@ class IssueFilters extends React.Component {
               labels: values,
               page: 1,
               per_page: selectedPerPage,
+              sort: selectedSort,
               order: selectedOrder
             })
           }} />
         <ResultOrder
-          value={selectedOrder}
+          value={selectedSortOrder}
           onChange={(value) => {
-            onOrderSelect({
+            const parsed = new URLSearchParams(value)
+            onSortOrderSelect({
               languages: selectedLanguages,
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
-              order: value
+              sort: parsed.get('sort'),
+              order: parsed.get('order')
             })
           }} />
           {children}
@@ -115,6 +140,7 @@ class IssueFilters extends React.Component {
                 labels: selectedLabels,
                 page: value,
                 per_page: selectedPerPage,
+                sort: selectedSort,
                 order: selectedOrder
               })
             }} />

@@ -16,11 +16,11 @@ import React from 'react'
 import {render} from "react-dom"
 
 import Index from './containers/'
-import configureStore from './store'
+import configureStore, { history } from './store'
 
 const Store = configureStore()
 
 render(
-    <Index store={Store} />,
+    <Index store={Store} history={history} />,
     document.getElementById('app-container')
 )

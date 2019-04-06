@@ -16,13 +16,13 @@ import React from 'react'
 import {render} from "react-dom"
 
 import Index from './../../src/js/containers/'
-import configureStore from './store'
+import configureStore, { history } from './store'
 import DevTools from './containers/DevTools'
 
 const Store = configureStore()
 
 render(
-  <Index store={Store} />,
+  <Index store={Store} history={history} />,
   document.getElementById('app-container')
 )
 

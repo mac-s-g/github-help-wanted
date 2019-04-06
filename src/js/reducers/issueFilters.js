@@ -3,17 +3,18 @@ import {
   SELECT_LANGUAGE,
   SELECT_LABEL,
   SELECT_PAGE,
-  SELECT_ORDER
+  SELECT_SORT_ORDER
 } from './../actions'
 
-const { page, per_page, sort_order } = constants.app_defaults
+const { page, per_page, sort, order } = constants.app_defaults
 
 let default_filters = {
   languages: [],
   labels: ["help wanted"],
   page: page,
   results_per_page: per_page,
-  order: sort_order
+  sort,
+  order
 }
 
 
@@ -34,10 +35,12 @@ const issueFilters = (state = default_filters, action) => {
         ...state,
         page: action.value
       }
-    case SELECT_ORDER:
+    case SELECT_SORT_ORDER:
+      const sort_order = new URLSearchParams(action.value)
       return {
         ...state,
-        order: action.value
+        sort: sort_order.get('sort'),
+        order: sort_order.get('order')
       }
     default:
       return state

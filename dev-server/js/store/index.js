@@ -5,7 +5,7 @@ import {
 } from 'redux'
 
 import Reducer from './../../../src/js/reducers'
-import Middleware from './../../../src/js/store/middleware'
+import Middleware, { history } from './../../../src/js/store/middleware'
 import DevTools from './../containers/DevTools';
 
 const enhancer = compose(
@@ -19,8 +19,10 @@ const enhancer = compose(
 
 export default function configureStore(initial_state) {
   return createStore(
-    Reducer,
+    Reducer(history),
     initial_state,
     enhancer
   );
 };
+
+export { history }

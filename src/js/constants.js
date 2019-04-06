@@ -5,7 +5,8 @@ const constants = {
   app_defaults: {
     page: 1,
     per_page: 10,
-    sort_order: "&sort=created&order=desc"
+    sort: "created",
+    order: "desc"
   },
   badge: {
     help_wanted: "rgb(18, 138, 12)"

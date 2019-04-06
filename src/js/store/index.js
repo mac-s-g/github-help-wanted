@@ -4,13 +4,15 @@ import {
 } from 'redux'
 
 import Reducer from './../reducers'
-import Middleware from './middleware'
+import Middleware, { history } from './middleware'
 
 
 export default function configureStore(initial_state) {
   return createStore(
-    Reducer,
+    Reducer(history),
     initial_state,
     applyMiddleware(...Middleware)
   );
 };
+
+export { history }
