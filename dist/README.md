@@ -41,7 +41,7 @@ Open a web browser on port 3100.
 # clone this repository
 git clone git@github.com:mac-s-g/github-help-wanted.git && cd github-help-wanted
 # install dependencies
-npm install --save-dev
+npm install
 # run the dev server at http://localhost:3100/
 npm run build
 # copy build resources to /dist/
