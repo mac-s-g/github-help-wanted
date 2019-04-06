@@ -30,7 +30,7 @@ git clone git@github.com:mac-s-g/github-help-wanted.git && cd github-help-wanted
 # install dependencies
 npm install
 # run the dev server at http://localhost:3100/
-npm run dev
+npm run dev:hot
 ```
 
 Open a web browser on port 3100.
