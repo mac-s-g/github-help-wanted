@@ -32,7 +32,7 @@ const FixedMenuLayout = () => (
               <Header.Subheader>
                 <p>Open-Source projects are looking for your help.</p>
                 <p>
-                  Below are recent issues that maintainers lablelled as{" "}
+                  Below are recent issues that maintainers labelled as{" "}
                   <i>help wanted</i>.
                 </p>
                 <p>

@@ -11,15 +11,16 @@ Find a project where the community needs your help and dive in!
 I want your help too!
 
 I encourage you to:
- * :star: this project
- * checkout the open issues, or create an issue
- * post a pull request
+
+-   :star: this project
+-   checkout the open issues, or create an issue
+-   post a pull request
 
 ### How to Contribute
 
 This website is written with [React](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux) using the [Semantic-UI-React](https://react.semantic-ui.com) css framework.
 
-*note: `sudo` may be required for docker interaction based on your installation config.*
+_note: `sudo` may be required for docker interaction based on your installation config._
 
 #### Run the Dev Server
 
@@ -27,10 +28,11 @@ This website is written with [React](https://github.com/facebook/react) and [Red
 # clone this repository
 git clone git@github.com:mac-s-g/github-help-wanted.git && cd github-help-wanted
 # install dependencies
-npm install --save-dev
+npm install
 # run the dev server at http://localhost:3100/
 npm run dev
 ```
+
 Open a web browser on port 3100.
 
 #### Run the Production Build
@@ -39,7 +41,7 @@ Open a web browser on port 3100.
 # clone this repository
 git clone git@github.com:mac-s-g/github-help-wanted.git && cd github-help-wanted
 # install dependencies
-npm install --save-dev
+npm install
 # run the dev server at http://localhost:3100/
 npm run build
 # copy build resources to /dist/
