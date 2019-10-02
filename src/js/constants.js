@@ -98,6 +98,7 @@ const constants = {
       "feature",
       "first-timers-only",
       "good first issue",
+      "hacktoberfest",
       "hard",
       "help wanted",
       "jump-in",
