@@ -15,16 +15,17 @@ export const REQUEST_ISSUES = 'REQUEST_ISSUES'
 export const RECEIVE_ISSUES = 'RECEIVE_ISSUES'
 export const RECEIVE_ISSUES_ERROR = 'RECEIVE_ISSUES_ERROR'
 
+export const RECEIVE_MORE_ISSUES = 'RECEIVE_MORE_ISSUES'
+export const REQUEST_MORE_ISSUES = 'REQUEST_MORE_ISSUES'
+
 export const REQUEST_REPO = 'REQUEST_REPO'
 export const RECEIVE_REPO = 'RECEIVE_REPO'
 export const RECEIVE_REPO_ERROR = 'RECEIVE_REPO_ERROR'
-
 
 export const selectLanguage = languages => ({
   type: SELECT_LANGUAGE,
   value: languages
 })
-
 
 export const selectLabels = labels => ({
   type: SELECT_LABEL,
@@ -41,8 +42,13 @@ export const selectSortOrder = sort_order => ({
   value: sort_order
 })
 
-
-export const updateSearchParams = ({ languages, labels, page, sort, order }) => {
+export const updateSearchParams = ({
+  languages,
+  labels,
+  page,
+  sort,
+  order
+}) => {
   const searchParams = new URLSearchParams({
     languages,
     labels,
@@ -50,16 +56,16 @@ export const updateSearchParams = ({ languages, labels, page, sort, order }) => 
     sort,
     order
   })
-  history.push({ search: '?' + searchParams.toString() })
+  history.push({
+    search: '?' + searchParams.toString()
+  })
   return { type: UPDATE_SEARCH_PARAMS }
 }
-
 
 const requestIssues = query_filters => ({
   type: REQUEST_ISSUES,
   request: query_filters
 })
-
 
 const receiveIssues = (query_filters, json) => ({
   type: RECEIVE_ISSUES,
@@ -68,6 +74,17 @@ const receiveIssues = (query_filters, json) => ({
   receivedAt: Date.now()
 })
 
+const requestMoreIssues = query_filters => ({
+  type: REQUEST_MORE_ISSUES,
+  request: query_filters
+})
+
+const receiveMoreIssues = (query_filters, json) => ({
+  type: RECEIVE_MORE_ISSUES,
+  result: json,
+  request: query_filters,
+  receivedAt: Date.now()
+})
 
 const receiveIssuesError = (query_filters, error) => ({
   type: RECEIVE_ISSUES_ERROR,
@@ -76,18 +93,29 @@ const receiveIssuesError = (query_filters, error) => ({
   receivedAt: Date.now()
 })
 
+export const fetchIssuesOnScroll = query_filters => {
+  return dispatch => {
+    dispatch(requestMoreIssues(query_filters))
+    return fetch(formatIssueQuery(query_filters))
+      .then(response => response.json())
+      .then(json => dispatch(receiveMoreIssues(query_filters, json)))
+      .catch(error => {
+        console.log(
+          'api error occurred while fetching issues',
+          query_filters,
+          error
+        )
+        dispatch(receiveIssuesError(query_filters, error))
+      })
+  }
+}
 
 export const fetchIssues = (query_filters, scroll_to_top = false) => {
   return dispatch => {
     dispatch(requestIssues(query_filters))
     return fetch(formatIssueQuery(query_filters))
       .then(response => response.json())
-      .then(json => dispatch(
-        receiveIssues(
-          query_filters,
-          json
-        )
-      ))
+      .then(json => dispatch(receiveIssues(query_filters, json)))
       .then(() => {
         // When results are fetched, scroll to the top
         // for better user experience (issue #6).
@@ -106,12 +134,10 @@ export const fetchIssues = (query_filters, scroll_to_top = false) => {
   }
 }
 
-
 const requestRepository = url => ({
   type: REQUEST_REPO,
   url: url
 })
-
 
 const receiveRepository = (url, json) => ({
   type: RECEIVE_REPO,
@@ -120,7 +146,6 @@ const receiveRepository = (url, json) => ({
   receivedAt: Date.now()
 })
 
-
 const receiveRepositoryError = (url, error) => ({
   type: RECEIVE_REPO_ERROR,
   result: error,
@@ -128,24 +153,14 @@ const receiveRepositoryError = (url, error) => ({
   receivedAt: Date.now()
 })
 
-
 export const fetchRepository = url => {
   return dispatch => {
     dispatch(requestRepository(url))
     return fetch(url)
       .then(response => response.json())
-      .then(json => dispatch(
-        receiveRepository(
-          url,
-          json
-        )
-      ))
+      .then(json => dispatch(receiveRepository(url, json)))
       .catch(error => {
-        console.log(
-          'api error occurred while fetching repository',
-          url,
-          error
-        )
+        console.log('api error occurred while fetching repository', url, error)
         dispatch(receiveRepositoryError(url, error))
       })
   }

@@ -1,11 +1,12 @@
-import React, { Component } from "react"
-import Styled from "styled-components"
-import { Container, Header } from "semantic-ui-react"
+import React, { Component } from 'react'
+import Styled from 'styled-components'
+import { Container, Header } from 'semantic-ui-react'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
-import MultiSelect from "./../../components/inputs/MultiSelect"
-import PaginationMenu from "./PaginationMenu"
-import ResultOrder from "./ResultOrder"
-import { constants } from "./../../constants"
+import MultiSelect from './../../components/inputs/MultiSelect'
+import PaginationMenu from './PaginationMenu'
+import ResultOrder from './ResultOrder'
+import { constants } from './../../constants'
 
 const { languages, labels } = constants.search_filters
 
@@ -39,11 +40,11 @@ class IssueFilters extends Component {
       const parsed = new URLSearchParams(location.search)
       query_filters = {
         ...query_filters,
-        languages: (parsed.get("languages") || "").split(","),
-        labels: (parsed.get("labels") || "").split(","),
-        page: Number.parseInt(parsed.get("page")),
-        sort: parsed.get("sort"),
-        order: parsed.get("order")
+        languages: (parsed.get('languages') || '').split(','),
+        labels: (parsed.get('labels') || '').split(','),
+        page: Number.parseInt(parsed.get('page')),
+        sort: parsed.get('sort'),
+        order: parsed.get('order')
       }
     }
 
@@ -60,23 +61,25 @@ class IssueFilters extends Component {
       selectedPage,
       selectedPerPage,
       onPageSelect,
+      onScroll,
       selectedSort,
       selectedOrder,
       selectedSortOrder,
       onSortOrderSelect,
       totalResults,
+      issuesCount,
       children
     } = this.props
 
     return (
       <Container>
-        <Header size="medium">
+        <Header size='medium'>
           <Header.Content>Narrow your Search</Header.Content>
         </Header>
         <FilterTitle>Languages</FilterTitle>
         <MultiSelect
-          style={{ marginBottom: "4px" }}
-          placeholder="Filter by Language"
+          style={{ marginBottom: '4px' }}
+          placeholder='Filter by Language'
           options={languages}
           value={selectedLanguages}
           onChange={values => {
@@ -92,8 +95,8 @@ class IssueFilters extends Component {
         />
         <FilterTitle>Labels</FilterTitle>
         <MultiSelect
-          style={{ marginBottom: "4px" }}
-          placeholder="Filter by Label"
+          style={{ marginBottom: '4px' }}
+          placeholder='Filter by Label'
           options={labels}
           value={selectedLabels}
           onChange={values => {
@@ -116,13 +119,29 @@ class IssueFilters extends Component {
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
-              sort: parsed.get("sort"),
-              order: parsed.get("order")
+              sort: parsed.get('sort'),
+              order: parsed.get('order')
             })
           }}
         />
-        {children}
-        <PaginationMenu
+        <InfiniteScroll
+          style={{ overflow: 'hidden' }}
+          dataLength={issuesCount}
+          hasMore={totalResults !== issuesCount}
+          next={() => {
+            onScroll({
+              languages: selectedLanguages,
+              labels: selectedLabels,
+              page: selectedPage + 1,
+              per_page: selectedPerPage,
+              sort: selectedSort,
+              order: selectedOrder
+            })
+          }}
+        >
+          {children}
+        </InfiniteScroll>
+        {/* <PaginationMenu
           selectedPage={selectedPage}
           selectedPerPage={selectedPerPage}
           totalResults={totalResults}
@@ -136,7 +155,7 @@ class IssueFilters extends Component {
               order: selectedOrder
             })
           }}
-        />
+        /> */}
       </Container>
     )
   }

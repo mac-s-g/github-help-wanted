@@ -13,6 +13,7 @@
     "moment": "^2.19.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-infinite-scroll-component": "^5.0.4",
     "react-markdown": "^2.5.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.3.1",
