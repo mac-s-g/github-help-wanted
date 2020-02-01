@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import Styled from "styled-components"
-import { Container, Header } from "semantic-ui-react"
+import React, { Component } from 'react'
+import Styled from 'styled-components'
+import { Container, Header, Checkbox } from 'semantic-ui-react'
 
-import MultiSelect from "./../../components/inputs/MultiSelect"
-import PaginationMenu from "./PaginationMenu"
-import ResultOrder from "./ResultOrder"
-import { constants } from "./../../constants"
+import MultiSelect from './../../components/inputs/MultiSelect'
+import PaginationMenu from './PaginationMenu'
+import ResultOrder from './ResultOrder'
+import { constants } from './../../constants'
 
 const { languages, labels } = constants.search_filters
 
@@ -22,6 +22,7 @@ class IssueFilters extends Component {
       selectedPerPage,
       selectedSort,
       selectedOrder,
+      noAssignee,
       location
     } = this.props
 
@@ -31,7 +32,8 @@ class IssueFilters extends Component {
       page: selectedPage,
       per_page: selectedPerPage,
       sort: selectedSort,
-      order: selectedOrder
+      order: selectedOrder,
+      noAssignee
     }
 
     if (location.search) {
@@ -39,11 +41,12 @@ class IssueFilters extends Component {
       const parsed = new URLSearchParams(location.search)
       query_filters = {
         ...query_filters,
-        languages: (parsed.get("languages") || "").split(","),
-        labels: (parsed.get("labels") || "").split(","),
-        page: Number.parseInt(parsed.get("page")),
-        sort: parsed.get("sort"),
-        order: parsed.get("order")
+        languages: (parsed.get('languages') || '').split(','),
+        labels: (parsed.get('labels') || '').split(','),
+        page: Number.parseInt(parsed.get('page')),
+        sort: parsed.get('sort'),
+        order: parsed.get('order'),
+        noAssignee: parsed.get('noAssignee')
       }
     }
 
@@ -65,6 +68,8 @@ class IssueFilters extends Component {
       selectedSortOrder,
       onSortOrderSelect,
       totalResults,
+      noAssignee,
+      onNoAssignee,
       children
     } = this.props
 
@@ -75,7 +80,7 @@ class IssueFilters extends Component {
         </Header>
         <FilterTitle>Languages</FilterTitle>
         <MultiSelect
-          style={{ marginBottom: "4px" }}
+          style={{ marginBottom: '4px' }}
           placeholder="Filter by Language"
           options={languages}
           value={selectedLanguages}
@@ -86,13 +91,14 @@ class IssueFilters extends Component {
               page: 1,
               per_page: selectedPerPage,
               sort: selectedSort,
-              order: selectedOrder
+              order: selectedOrder,
+              noAssignee
             })
           }}
         />
         <FilterTitle>Labels</FilterTitle>
         <MultiSelect
-          style={{ marginBottom: "4px" }}
+          style={{ marginBottom: '4px' }}
           placeholder="Filter by Label"
           options={labels}
           value={selectedLabels}
@@ -103,7 +109,8 @@ class IssueFilters extends Component {
               page: 1,
               per_page: selectedPerPage,
               sort: selectedSort,
-              order: selectedOrder
+              order: selectedOrder,
+              noAssignee
             })
           }}
         />
@@ -116,10 +123,26 @@ class IssueFilters extends Component {
               labels: selectedLabels,
               page: 1,
               per_page: selectedPerPage,
-              sort: parsed.get("sort"),
-              order: parsed.get("order")
+              sort: parsed.get('sort'),
+              order: parsed.get('order'),
+              noAssignee
             })
           }}
+        />
+        <Checkbox
+          label="No Assignee"
+          onChange={(_, value) => {
+            onNoAssignee({
+              languages: selectedLanguages,
+              labels: selectedLabels,
+              page: selectedPage,
+              per_page: selectedPerPage,
+              sort: selectedSort,
+              order: selectedOrder,
+              noAssignee: value.checked
+            })
+          }}
+          value={noAssignee}
         />
         {children}
         <PaginationMenu
@@ -133,7 +156,8 @@ class IssueFilters extends Component {
               page: value,
               per_page: selectedPerPage,
               sort: selectedSort,
-              order: selectedOrder
+              order: selectedOrder,
+              noAssignee
             })
           }}
         />

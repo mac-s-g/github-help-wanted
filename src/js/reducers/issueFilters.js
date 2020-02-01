@@ -3,20 +3,21 @@ import {
   SELECT_LANGUAGE,
   SELECT_LABEL,
   SELECT_PAGE,
-  SELECT_SORT_ORDER
+  SELECT_SORT_ORDER,
+  selectNoAssignee
 } from './../actions'
 
 const { page, per_page, sort, order } = constants.app_defaults
 
 let default_filters = {
   languages: [],
-  labels: ["help wanted"],
+  labels: ['help wanted'],
   page: page,
   results_per_page: per_page,
   sort,
-  order
+  order,
+  noAssignee: false
 }
-
 
 const issueFilters = (state = default_filters, action) => {
   switch (action.type) {
@@ -41,6 +42,11 @@ const issueFilters = (state = default_filters, action) => {
         ...state,
         sort: sort_order.get('sort'),
         order: sort_order.get('order')
+      }
+    case selectNoAssignee:
+      return {
+        ...state,
+        noAssignee: action.value
       }
     default:
       return state
