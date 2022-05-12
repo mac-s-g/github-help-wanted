@@ -61,6 +61,7 @@ const constants = {
       "HTML",
       "Java",
       "JavaScript",
+      "Kotlin",
       "Lisp",
       "Lua",
       "Makefile",
