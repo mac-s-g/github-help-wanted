@@ -10,7 +10,7 @@
     "connected-react-router": "^5.0.1",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.19.2",
+    "moment": "^2.29.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-markdown": "^2.5.0",
