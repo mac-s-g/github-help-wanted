@@ -11,7 +11,7 @@ const Navbar = () => (
   <div>
     <Menu attached="top" inverted as={HeaderComponent}>
       <Container>
-        <Menu.Item as="a" header>
+        <Menu.Item as="a" href="http://github-help-wanted.com/" header>
           <Logo size="large" />
         </Menu.Item>
         <Menu.Menu position="right">
